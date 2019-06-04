@@ -13,3 +13,12 @@ FLUSH PRIVILEGES;
 
 Username: admin
 Password: eGrahs2cQaNf5QIYH@
+
+## On top of every page!
+```php
+<?php
+  global $language;
+
+  update_language();
+?>
+```
