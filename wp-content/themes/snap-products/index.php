@@ -4,8 +4,6 @@
   global $language;
 
   update_language();
-
-  var_dump($language);
 ?>
 
 <?php
