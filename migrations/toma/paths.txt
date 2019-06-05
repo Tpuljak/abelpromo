@@ -1,0 +1,2 @@
+URL: //localhost/snap-products
+FILE PATH: /Applications/XAMPP/xamppfiles/htdocs/snap-products
