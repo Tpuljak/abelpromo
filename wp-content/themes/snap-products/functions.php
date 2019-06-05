@@ -1,4 +1,5 @@
 <?php 
+include(get_template_directory() . '/products/admin/post-type.php' );
 
 if (function_exists('add_theme_support')) {
     load_theme_textdomain('snap-products');
