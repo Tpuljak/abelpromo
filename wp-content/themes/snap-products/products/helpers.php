@@ -55,7 +55,9 @@
           case 'product_details_print_area_unit':
             $products[$post_id]->print_area['unit'] = $meta_value;
             break;
-          
+          case 'image_type':
+            $products[$post_id]->image_type = ($meta_value) ? 'diagonal' : 'vertical';
+            break;
         }
 
         if($language == 'HR' && !isset($products[$post_id]->title)) {
