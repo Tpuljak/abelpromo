@@ -20,6 +20,14 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 define( 'images', get_stylesheet_directory_uri() . '/images/' );
 
+//Allow svg files to be uploaded to the media library
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+   }
+   add_filter('upload_mimes', 'cc_mime_types');
+
+
 function include_templates($templateNames) {
     foreach ($templateNames as $templateName) {
         include(locate_template('./components/'.$templateName.'.php'));

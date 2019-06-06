@@ -37,13 +37,13 @@
           case 'product_details_moq':
             $products[$post_id]->moq = $meta_value;
             break;
-          case 'product_details_lead_time':
+          case $prepend.'product_details_lead_time':
             $products[$post_id]->lead_time = $meta_value;
             break;
-          case 'product_details_colours':
+          case $prepend.'product_details_colours':
             $products[$post_id]->colours_field = $meta_value;
             break;
-          case 'product_details_refill':
+          case $prepend.'product_details_refill':
             $products[$post_id]->refill = $meta_value;
             break;
           case 'product_details_print_area_width':
@@ -57,6 +57,9 @@
             break;
           case 'image_type':
             $products[$post_id]->image_type = ($meta_value) ? 'diagonal' : 'vertical';
+            break;
+          case 'line_drawing':
+            $products[$post_id]->line_drawing = $meta_value;
             break;
         }
 
