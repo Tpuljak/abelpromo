@@ -41,42 +41,6 @@
             "ui_off_text": "Vertical"
         },
         {
-            "key": "field_5cf8fd40db71d",
-            "label": "Colours",
-            "name": "colours",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_5cf824ba4dcba",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add colour option",
-            "sub_fields": [
-                {
-                    "key": "field_5cf8fd40ddf7d",
-                    "label": "Color",
-                    "name": "colour",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                }
-            ]
-        },
-        {
             "key": "field_5cf8fd40e07fa",
             "label": "Product details",
             "name": "product_details",
@@ -425,6 +389,66 @@
                     "ui_off_text": "Disabled"
                 }
             ]
+        },
+        {
+            "key": "field_5cf8fe422bdd6",
+            "label": "Product images",
+            "name": "product_images",
+            "type": "repeater",
+            "instructions": "All product images (in .svg format) + their respective colours.\r\nThe first image and the colour in the table are the default ones.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5cf8feae2bdd7",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add image",
+            "sub_fields": [
+                {
+                    "key": "field_5cf8feae2bdd7",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg"
+                },
+                {
+                    "key": "field_5cf8fed72bdd8",
+                    "label": "Colour",
+                    "name": "colour",
+                    "type": "color_picker",
+                    "instructions": "Choose the colour associated with the uploaded image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -457,5 +481,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1559821860
+    "modified": 1559822105
 }
