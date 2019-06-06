@@ -4,6 +4,10 @@
   global $language;
 
   update_language();
+
+  include(get_template_directory() . '/products/queries/get-products-query.php');
+
+  var_dump(get_products());
 ?>
 
 <?php
