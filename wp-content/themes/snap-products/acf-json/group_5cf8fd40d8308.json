@@ -414,7 +414,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Max size = 500x500",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -428,8 +428,8 @@
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
+                    "max_width": 500,
+                    "max_height": 500,
                     "max_size": "",
                     "mime_types": "svg"
                 },
@@ -455,7 +455,7 @@
             "label": "Line drawing",
             "name": "line_drawing",
             "type": "image",
-            "instructions": "",
+            "instructions": "Max size = 500x500",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -469,8 +469,8 @@
             "min_width": "",
             "min_height": "",
             "min_size": "",
-            "max_width": "",
-            "max_height": "",
+            "max_width": 500,
+            "max_height": 500,
             "max_size": "",
             "mime_types": "svg"
         },
@@ -615,5 +615,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1559836081
+    "modified": 1559838650
 }
