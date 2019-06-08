@@ -4,5 +4,10 @@
 
     and one image test
 
-    <img src="<?php echo images . 'test-image.jpg'; ?>" />
+    <img src="<?php echo images . '/icons/checkbox-empty.svg'; ?>" />
+    <img src="<?php echo images . '/icons/checkbox-checked.svg'; ?>" />
+    <img src="<?php echo images . '/icons/checkbox-unchecked.svg'; ?>" />
+
+    <span sprite="pisaci-pribor"></span>
+    <span sprite="upaljaci-i-privjesci"></span>
 <?php get_footer(); ?>

@@ -1,3 +1,31 @@
-button {
-    background-color: red;
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+/* Icon */
+.icon {
+    display: inline-block;
+}
+
+.icon > img {
+    object-fit: contain;
+    max-width: 100%;
+    width: auto;
+}
+
+/* Checkbox */
+.checkbox {
+    
+}
+
+.checkbox.checked {
+
+}
+
+.checkbox.unchecked {
+
+}
+
