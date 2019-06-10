@@ -28,6 +28,7 @@ function include_templates($templateNames) {
 
 $templateNames = array(
     'button',
+    'Sidebar'
 );
 
 include_templates($templateNames);
