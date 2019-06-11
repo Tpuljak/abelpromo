@@ -1,7 +1,13 @@
 <?php get_header(); ?>
 
 <?php
-  var_dump(get_the_ID());
+  include(get_template_directory() . '/products/queries/get-single-product.php');
+
+  $product = get_product(get_the_ID());
+
+  if ($product) {
+    $product = array_values($product)[0];
+  }
 ?>
 
 <?php get_footer(); ?>
