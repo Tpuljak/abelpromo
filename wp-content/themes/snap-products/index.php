@@ -7,7 +7,8 @@
 
   include(get_template_directory() . '/products/queries/get-products-query.php');
 
-  var_dump(get_products());
+  get_products();
+  // var_dump(get_products());
 ?>
 
 <?php

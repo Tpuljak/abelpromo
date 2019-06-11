@@ -1,5 +1,7 @@
 <?php
   class Product {}
+  class Price {}
+  class Image {}
 
   function transform_to_product_objects($products_DTO, $products) {
     global $language;
@@ -7,6 +9,9 @@
     if ($language == 'HR') {
         $prepend .= 'hr_';
     }
+
+    $pricing = array();
+    $images = array();
 
     for ($i = 0; $i < count($products_DTO); $i++) {
         $post_id = (string)$products_DTO[$i]->post_id;
@@ -61,17 +66,71 @@
           case 'line_drawing':
             $products[$post_id]->line_drawing = $meta_value;
             break;
+          case (preg_match('/pricing_.*/', $meta_key) ? true : false):
+            $pricing[$post_id][$meta_key] = $meta_value;
+            break;
+          case (preg_match('/product_images_.*/', $meta_key) ? true : false):
+            $images[$post_id][$meta_key] = $meta_value;
+            break;
+          // default:
+          //   var_dump('<pre>' . $meta_key . ' ' . $meta_value . '</pre>');
+          //   break;
         }
 
         if($language == 'HR' && !isset($products[$post_id]->title)) {
           $products[$post_id]->title = $products_DTO[$i]->post_title;
         }
-        // if(!isset($products[$post_id]->post_date)) {
-        //   $products[$post_id]->post_date = $products_DTO[$i]->post_date;
-        // } 
+    }
+
+    foreach($pricing as $post_id => $pricing_for_product) {
+      $products[$post_id]->pricing = format_pricing($pricing_for_product);
+    }
+
+    foreach($images as $post_id => $images_for_product) {
+      $products[$post_id]->images = format_images($images_for_product, $post_id);
     }
 
     return $products;
+  }
+
+  function format_pricing($pricing) {
+    $pricing_formatted = array();
+
+    foreach ($pricing as $key => $value) {
+      $key_exploded = explode('_', $key);
+
+      if (!$pricing_formatted[$key_exploded[1]]) {
+        $pricing_formatted[$key_exploded[1]] = new Price();
+      }
+
+      if ($key_exploded[2] == 'price') {
+        $pricing_formatted[$key_exploded[1]]->price = $value;
+      } else {
+        $pricing_formatted[$key_exploded[1]]->number_of_pieces = $value;
+      }
+    }
+
+    return $pricing_formatted;
+  }
+
+  function format_images($images, $post_id) {
+    $images_formatted = array();
+
+    foreach ($images as $key => $value) {
+      $key_exploded = explode('_', $key);
+
+      if (!$images_formatted[$key_exploded[2]]) {
+        $images_formatted[$key_exploded[2]] = new Image();
+      }
+
+      if ($key_exploded[3] == 'image') {
+        $images_formatted[$key_exploded[2]]->image = get_field($key, $post_id);
+      } else {
+        $images_formatted[$key_exploded[2]]->colour = $value;
+      }
+    }
+
+    return $images_formatted;
   }
 
   function get_products_meta($products_query) {
