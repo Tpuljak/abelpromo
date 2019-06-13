@@ -1,5 +1,8 @@
 <?php 
 include(get_template_directory() . '/products/admin/post-type.php' );
+include(get_template_directory() . '/products/helpers.php');
+include(get_template_directory() . '/products/queries/get-products-query.php');
+include(get_template_directory() . '/products/queries/get-single-product.php');
 
 if (function_exists('add_theme_support')) {
     load_theme_textdomain('snap-products');
@@ -78,4 +81,33 @@ add_filter( 'rewrite_rules_array', 'prepend_default_rewrite_rules' );
 
 /* Stops unwanted redirects when site doesn't exist */
 remove_action('template_redirect', 'redirect_canonical');
+
+
+function load_more($params) {
+    $requestParams = array();
+    parse_str($_SERVER['QUERY_STRING'], $requestParams);
+    global $language;
+    $language = 'EN';
+
+    if (isset($requestParams['lang'])) {
+        $language = $requestParams['lang'];
+    }
+
+    $offset = isset($requestParams['offset']) ? $requestParams['offset'] : 0;
+    $limit = isset($requestParams['limit']) ? $requestParams['limit'] : 10;
+
+    $products = get_products($offset, $limit);
+
+    if ($products == NULL) {
+        return NULL;
+    }
+
+
+}
+add_action('rest_api_init', function () {
+    register_rest_route( 'api', 'products/load-more', array(
+        'methods'  => 'GET',
+        'callback' => 'load_more'
+    ));
+});
 ?>

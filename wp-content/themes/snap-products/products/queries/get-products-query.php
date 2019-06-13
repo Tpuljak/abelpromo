@@ -1,6 +1,4 @@
 <?php
-  include(get_template_directory() . '/products/helpers.php');
-
   function get_products($offset = 0, $how_many = PHP_INT_MAX) {
     global $language, $wpdb;
 

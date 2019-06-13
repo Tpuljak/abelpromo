@@ -1,6 +1,4 @@
 <?php
-  include(get_template_directory() . '/products/helpers.php');
-
   function get_product($product_id) {
     global $language, $wpdb;
 
