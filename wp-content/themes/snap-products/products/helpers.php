@@ -148,13 +148,14 @@
         if (isset($product->ID)) {
             $products[(string)$product->ID] = new Product();
             $products[(string)$product->ID]->title = $product->post_title;
+            $products[(string)$product->ID]->category = $product->category;
             array_push($product_IDs, $product->ID);
         }
     }
 
-    $products_query = "SELECT * FROM wp_postmeta AS postmeta
-    INNER JOIN wp_posts AS posts
-      ON postmeta.post_id = posts.ID
+    $products_query = "SELECT * 
+    FROM wp_postmeta AS postmeta
+    INNER JOIN wp_posts AS posts ON postmeta.post_id = posts.ID
       WHERE postmeta.meta_key NOT LIKE '\_%'
       AND posts.ID IN (".implode(',', $product_IDs).")";
     
