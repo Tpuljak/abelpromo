@@ -148,7 +148,7 @@
         if (isset($product->ID)) {
             $products[(string)$product->ID] = new Product();
             $products[(string)$product->ID]->title = $product->post_title;
-            $products[(string)$product->ID]->category = $product->category;
+            $products[(string)$product->ID]->category = ($language == 'HR') ? $product->hr_category : $product->category;
             array_push($product_IDs, $product->ID);
         }
     }
