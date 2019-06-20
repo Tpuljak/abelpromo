@@ -3,7 +3,7 @@
   class Price {}
   class Image {}
 
-  function transform_to_product_objects($products_DTO, $products) {
+  function transform_to_product_objects($products_DTO, $products, $is_single) {
     global $language;
     $prepend = '';
     if ($language == 'HR') {
@@ -87,6 +87,15 @@
     }
 
     foreach($images as $post_id => $images_for_product) {
+      if (!$is_single) {
+        $first_image_key = array_keys($images_for_product)[0];
+        $first_image_value = $images_for_product[$first_image_key];
+        
+        $images_for_product = array(
+          $first_image_key => $first_image_value
+        );
+      }
+
       $products[$post_id]->images = format_images($images_for_product, $post_id);
     }
 
@@ -133,7 +142,7 @@
     return $images_formatted;
   }
 
-  function get_products_meta($products_query) {
+  function get_products_meta($products_query, $is_single = false) {
     global $wpdb, $language;
       
     $products_query_result = $wpdb->get_results($products_query);
@@ -160,7 +169,7 @@
       AND posts.ID IN (".implode(',', $product_IDs).")";
     
     $products_DTO = $wpdb->get_results($products_query);
-    $products = transform_to_product_objects($products_DTO, $products);
+    $products = transform_to_product_objects($products_DTO, $products, $is_single);
 
     return $products;
   }

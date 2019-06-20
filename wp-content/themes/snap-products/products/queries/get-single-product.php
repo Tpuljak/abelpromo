@@ -20,6 +20,6 @@
         AND tt.taxonomy = 'product_category'
         AND hr_category.meta_key = 'product_category_hr'";
 
-    return get_products_meta($products_query);
+    return get_products_meta($products_query, $is_single = true);
   }
 ?>
