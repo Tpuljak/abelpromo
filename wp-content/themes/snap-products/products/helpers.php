@@ -11,6 +11,7 @@
     }
 
     $pricing = array();
+    $discounted_pricing = array();
     $images = array();
 
     for ($i = 0; $i < count($products_DTO); $i++) {
@@ -64,7 +65,13 @@
             $products[$post_id]->image_type = ($meta_value) ? 'diagonal' : 'vertical';
             break;
           case 'line_drawing':
-            $products[$post_id]->line_drawing = $meta_value;
+            $products[$post_id]->line_drawing = get_field('line_drawing', $post_id);
+            break;
+          case 'on_discount':
+            $products[$post_id]->on_discount = $meta_value;
+            break;
+          case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
+            $discounted_pricing[$post_id][$meta_key] = $meta_value;
             break;
           case (preg_match('/pricing_.*/', $meta_key) ? true : false):
             $pricing[$post_id][$meta_key] = $meta_value;
@@ -84,6 +91,10 @@
 
     foreach($pricing as $post_id => $pricing_for_product) {
       $products[$post_id]->pricing = format_pricing($pricing_for_product);
+    }
+
+    foreach($discounted_pricing as $post_id => $discounted_pricing_for_product) {
+      $products[$post_id]->discounted_pricing = format_pricing($discounted_pricing_for_product);
     }
 
     foreach($images as $post_id => $images_for_product) {
