@@ -1,3 +1,9 @@
+<?php
+  global $language;
+
+  update_language();
+?>
+
 <?php get_header(); ?>
   <?php Sidebar(); ?>
 
