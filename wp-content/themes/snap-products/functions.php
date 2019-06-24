@@ -27,7 +27,12 @@ function include_templates($templateNames) {
 }
 
 $templateNames = array(
+    'Info',
     'button',
+    'Sidebar',
+    'DeliveryCheckbox',
+    'MaterialCheckbox',
+    'PackageCheckbox',
 );
 
 include_templates($templateNames);
