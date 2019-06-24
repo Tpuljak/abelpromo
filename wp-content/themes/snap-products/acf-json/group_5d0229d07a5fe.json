@@ -1,0 +1,709 @@
+{
+    "key": "group_5d0229d07a5fe",
+    "title": "Product",
+    "fields": [
+        {
+            "key": "field_5d0229d07d67f",
+            "label": "Description",
+            "name": "product_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d0229d07d69c",
+            "label": "Product details",
+            "name": "product_details",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5d0229d07f4d4",
+                    "label": "M.O.Q.",
+                    "name": "moq",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5d0229d07f4e0",
+                    "label": "Lead Time",
+                    "name": "lead_time",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d0229d07f4eb",
+                    "label": "Colours",
+                    "name": "colours",
+                    "type": "wysiwyg",
+                    "instructions": "Color details displayed in the product details area.\r\nEg. \"Body: White Trim: White, Green\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "visual",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5d0229d07f4f5",
+                    "label": "Refill",
+                    "name": "refill",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d0229d07f4ff",
+                    "label": "Print Area",
+                    "name": "print_area",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d0229d084006",
+                            "label": "Width",
+                            "name": "width",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 1,
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5d0229d084013",
+                            "label": "Height",
+                            "name": "height",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 1,
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5d0229d08401e",
+                            "label": "Unit",
+                            "name": "unit",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_5d0229d088518",
+            "label": "Pricing",
+            "name": "pricing",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5cf8206a61afb",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add row",
+            "sub_fields": [
+                {
+                    "key": "field_5d0229d0894b5",
+                    "label": "Number of pieces",
+                    "name": "number_of_pieces",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5d0229d0894c2",
+                    "label": "Price (EUR)",
+                    "name": "price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d0232aabf64f",
+            "label": "On discount?",
+            "name": "on_discount",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d0232defa07f",
+            "label": "Discounted pricing",
+            "name": "discounted_pricing",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d0232aabf64f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add row",
+            "sub_fields": [
+                {
+                    "key": "field_5d0232dffa080",
+                    "label": "Number of pieces",
+                    "name": "number_of_pieces",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 1,
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5d0232dffa081",
+                    "label": "Price (EUR)",
+                    "name": "price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d0229d08be54",
+            "label": "Quantity choosing step",
+            "name": "quantity_choosing_step",
+            "type": "number",
+            "instructions": "Defines the number of pieces the Quantity will increase or decrease when the user clicks +\/-.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 50,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5d0229d08cb37",
+            "label": "Additional & shipping options",
+            "name": "additional_options",
+            "type": "group",
+            "instructions": "Should the additional options be enabled or not.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_5d0229d08d882",
+                    "label": "White underrint",
+                    "name": "white_underrint",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Enabled",
+                    "ui_off_text": "Disabled"
+                },
+                {
+                    "key": "field_5d0229d08d88e",
+                    "label": "Primer",
+                    "name": "primer",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Enabled",
+                    "ui_off_text": "Disabled"
+                },
+                {
+                    "key": "field_5d0229d08d899",
+                    "label": "UV varnish",
+                    "name": "uv_varnish",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Enabled",
+                    "ui_off_text": "Disabled"
+                },
+                {
+                    "key": "field_5d0229d08d8a3",
+                    "label": "Engrave",
+                    "name": "engrave",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Enabled",
+                    "ui_off_text": "Disabled"
+                }
+            ]
+        },
+        {
+            "key": "field_5d0229d09196c",
+            "label": "Image type",
+            "name": "image_type",
+            "type": "true_false",
+            "instructions": "Determines how the product image will be displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Diagonal",
+            "ui_off_text": "Vertical"
+        },
+        {
+            "key": "field_5d0229d092872",
+            "label": "Product images",
+            "name": "product_images",
+            "type": "repeater",
+            "instructions": "All product images (in .svg format) + their respective colours.\r\nThe first image and the colour in the table are the default ones.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5cf8feae2bdd7",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add image",
+            "sub_fields": [
+                {
+                    "key": "field_5d0229d093bd9",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Max size = 500x500",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": 500,
+                    "max_height": 500,
+                    "max_size": "",
+                    "mime_types": "svg"
+                },
+                {
+                    "key": "field_5d0229d093bf7",
+                    "label": "Colour",
+                    "name": "colour",
+                    "type": "color_picker",
+                    "instructions": "Choose the colour associated with the uploaded image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d0229d09630e",
+            "label": "Line drawing",
+            "name": "line_drawing",
+            "type": "image",
+            "instructions": "Max size = 500x500",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": 500,
+            "max_height": 500,
+            "max_size": "",
+            "mime_types": "svg"
+        },
+        {
+            "key": "field_5d0229d097409",
+            "label": "Croatian translation texts",
+            "name": "hr",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5d0229d0985d2",
+                    "label": "Product description",
+                    "name": "product_description",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Croatian translation",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d0229d0985df",
+                    "label": "Product details",
+                    "name": "product_details",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d0229d09a4c6",
+                            "label": "Lead time",
+                            "name": "lead_time",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Croatian translation",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d0229d09a4df",
+                            "label": "Colours",
+                            "name": "colours",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "visual",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5d0229d09a4f0",
+                            "label": "Refill",
+                            "name": "refill",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Croatian translation",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1560425222
+}

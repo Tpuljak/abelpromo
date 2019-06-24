@@ -3,7 +3,7 @@
   class Price {}
   class Image {}
 
-  function transform_to_product_objects($products_DTO, $products) {
+  function transform_to_product_objects($products_DTO, $products, $is_single) {
     global $language;
     $prepend = '';
     if ($language == 'HR') {
@@ -11,6 +11,7 @@
     }
 
     $pricing = array();
+    $discounted_pricing = array();
     $images = array();
 
     for ($i = 0; $i < count($products_DTO); $i++) {
@@ -64,7 +65,13 @@
             $products[$post_id]->image_type = ($meta_value) ? 'diagonal' : 'vertical';
             break;
           case 'line_drawing':
-            $products[$post_id]->line_drawing = $meta_value;
+            $products[$post_id]->line_drawing = get_field('line_drawing', $post_id);
+            break;
+          case 'on_discount':
+            $products[$post_id]->on_discount = $meta_value;
+            break;
+          case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
+            $discounted_pricing[$post_id][$meta_key] = $meta_value;
             break;
           case (preg_match('/pricing_.*/', $meta_key) ? true : false):
             $pricing[$post_id][$meta_key] = $meta_value;
@@ -86,7 +93,20 @@
       $products[$post_id]->pricing = format_pricing($pricing_for_product);
     }
 
+    foreach($discounted_pricing as $post_id => $discounted_pricing_for_product) {
+      $products[$post_id]->discounted_pricing = format_pricing($discounted_pricing_for_product);
+    }
+
     foreach($images as $post_id => $images_for_product) {
+      if (!$is_single) {
+        $first_image_key = array_keys($images_for_product)[0];
+        $first_image_value = $images_for_product[$first_image_key];
+        
+        $images_for_product = array(
+          $first_image_key => $first_image_value
+        );
+      }
+
       $products[$post_id]->images = format_images($images_for_product, $post_id);
     }
 
@@ -133,7 +153,7 @@
     return $images_formatted;
   }
 
-  function get_products_meta($products_query) {
+  function get_products_meta($products_query, $is_single = false) {
     global $wpdb, $language;
       
     $products_query_result = $wpdb->get_results($products_query);
@@ -148,18 +168,19 @@
         if (isset($product->ID)) {
             $products[(string)$product->ID] = new Product();
             $products[(string)$product->ID]->title = $product->post_title;
+            $products[(string)$product->ID]->category = ($language == 'HR') ? $product->hr_category : $product->category;
             array_push($product_IDs, $product->ID);
         }
     }
 
-    $products_query = "SELECT * FROM wp_postmeta AS postmeta
-    INNER JOIN wp_posts AS posts
-      ON postmeta.post_id = posts.ID
+    $products_query = "SELECT * 
+    FROM wp_postmeta AS postmeta
+    INNER JOIN wp_posts AS posts ON postmeta.post_id = posts.ID
       WHERE postmeta.meta_key NOT LIKE '\_%'
       AND posts.ID IN (".implode(',', $product_IDs).")";
     
     $products_DTO = $wpdb->get_results($products_query);
-    $products = transform_to_product_objects($products_DTO, $products);
+    $products = transform_to_product_objects($products_DTO, $products, $is_single);
 
     return $products;
   }
