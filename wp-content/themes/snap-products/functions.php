@@ -126,4 +126,11 @@ add_action('rest_api_init', function () {
         'callback' => 'load_more'
     ));
 });
+
+function get_request_params() {
+    $requestParams = array();
+    parse_str($_SERVER['QUERY_STRING'], $requestParams);
+
+    return $requestParams;
+}
 ?>
