@@ -4,7 +4,7 @@
   update_language();
 
   // get_products();
-  var_dump(get_products($offset = 0, $how_many = 1000, $filters = ['featured']));
+  var_dump(get_products($offset = 0, $how_many = 1000, $filters = ['discounted']));
 ?>
 
 <?php get_header(); ?>
