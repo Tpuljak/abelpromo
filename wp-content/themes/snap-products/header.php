@@ -2,6 +2,8 @@
 
 <?php
     $urlParams = explode( '/', $_SERVER['REQUEST_URI'] );
+
+    global $language;
 ?>
 
 <html>
@@ -11,16 +13,17 @@
     </head>
     <nav class="nav">
         <div class="nav-container">
-            <a href="#">
+            <a href="<?php echo home_url(); ?>">
                 <img src="<?php echo images; ?>/icons/nav/email.svg" alt="">
+                <?php echo ($language == 'HR') ? 'Naslovnica' : 'Home'; ?>
+            </a>
+            <a href="http://static.fliphtml5.com/web/demo/HM/index.html#p=4" target="blank">
+                <img src="<?php echo images; ?>/icons/nav/list.svg" alt="">
+                <?php echo ($language == 'HR') ? 'Katalog' : 'Catalog'; ?>
             </a>
             <a href="#">
-            <img src="<?php echo images; ?>/icons/nav/list.svg" alt="">
-                Katalog
-            </a>
-            <a href="#">
-            <img src="<?php echo images; ?>/icons/nav/contact.svg" alt="">
-                Contact us
+                <img src="<?php echo images; ?>/icons/nav/contact.svg" alt="">
+                <?php echo ($language == 'HR') ? 'Kontaktiraj nas' : 'Contact us'; ?>
             </a>
         </div>
         <div class="nav-shortcuts">
