@@ -1,14 +1,18 @@
 <?php
-  function get_products($offset = 0, $how_many = PHP_INT_MAX, $filters = NULL) {
+  function get_products($offset = 0, $how_many = -1, $filters = ['']) {
     global $language, $wpdb;
 
     $prepend = '';
+
+    if ($how_many = -1) {
+      $how_many = PHP_INT_MAX;
+    }
 
     if ($language == 'HR') {
       $prepend = 'hr_';
     }
 
-    if ($filters == NULL) {
+    if (empty($filters)) {
       $products_query = "SELECT *, t.name AS category, hr_category.meta_value AS hr_category
       FROM $wpdb->posts AS p
       INNER JOIN $wpdb->term_relationships AS tr ON (p.ID = tr.object_id)
@@ -60,7 +64,7 @@
       $products_query .= " LIMIT {$offset}, {$how_many}";
     }
 
-    var_dump($products_query);
+    // var_dump($products_query);
     return get_products_meta($products_query);
   }
 ?>

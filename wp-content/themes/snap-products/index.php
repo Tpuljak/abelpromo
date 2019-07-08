@@ -3,8 +3,7 @@
 
   update_language();
 
-  // get_products();
-  var_dump(get_products($offset = 0, $how_many = 1000, $filters = ['discounted']));
+  get_products();
 ?>
 
 <?php get_header(); ?>
