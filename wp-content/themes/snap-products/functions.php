@@ -87,6 +87,17 @@ add_filter( 'rewrite_rules_array', 'prepend_default_rewrite_rules' );
 /* Stops unwanted redirects when site doesn't exist */
 remove_action('template_redirect', 'redirect_canonical');
 
+function get_url_append($urlParams) {
+    $urlAppend = '';
+    foreach ($urlParams as $param) {
+        if($param != 'snap-products' && $param != 'hr') {
+            $urlAppend .= rtrim($param, '/') . '/';
+        }
+    }
+    $urlAppend = rtrim($urlAppend, '/');
+    $urlAppend = ltrim($urlAppend, '/');
+    return $urlAppend;
+}
 
 function load_more($params) {
     $requestParams = array();
