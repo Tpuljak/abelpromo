@@ -7,6 +7,7 @@
 <?php get_header(); ?>
 <div class="order-page-wrapper">
     <?php Sidebar('vertical'); ?>
+    <?php echo do_shortcode('[contact-form-7 id="165" title="Order"]');?>
     <main class="order-form">
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Proizvod' : 'Product'; ?></label>
