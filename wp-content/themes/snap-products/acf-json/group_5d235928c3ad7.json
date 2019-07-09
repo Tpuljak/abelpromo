@@ -282,6 +282,27 @@
             ]
         },
         {
+            "key": "field_5d245e579ac71",
+            "label": "Base print price",
+            "name": "base_print_price",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "B0",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5d235928d8d0d",
             "label": "On discount?",
             "name": "on_discount",
@@ -405,7 +426,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_5d235928e449c",
@@ -427,6 +448,35 @@
                     "ui_off_text": "Disabled"
                 },
                 {
+                    "key": "field_5d245d89f092d",
+                    "label": "White underrint price",
+                    "name": "white_underrint_price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d235928e449c",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
                     "key": "field_5d235928e44bb",
                     "label": "Primer",
                     "name": "primer",
@@ -444,6 +494,35 @@
                     "ui": 1,
                     "ui_on_text": "Enabled",
                     "ui_off_text": "Disabled"
+                },
+                {
+                    "key": "field_5d245db2f092e",
+                    "label": "Primer price",
+                    "name": "primer_price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d235928e44bb",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
                     "key": "field_5d235928e44c7",
@@ -465,6 +544,35 @@
                     "ui_off_text": "Disabled"
                 },
                 {
+                    "key": "field_5d245dc4f092f",
+                    "label": "UV varnish price",
+                    "name": "uv_varnish_price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d235928e44c7",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
                     "key": "field_5d235928e44d3",
                     "label": "Engrave",
                     "name": "engrave",
@@ -482,6 +590,35 @@
                     "ui": 1,
                     "ui_on_text": "Enabled",
                     "ui_off_text": "Disabled"
+                },
+                {
+                    "key": "field_5d245dddf0930",
+                    "label": "Engrave price",
+                    "name": "engrave_price",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d235928e44d3",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 }
             ]
         },
@@ -729,5 +866,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562598357
+    "modified": 1562664566
 }
