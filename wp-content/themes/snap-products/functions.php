@@ -161,5 +161,7 @@ function calculate_price($product) {
     }
 
     $b = $b0 + $b1 + $b2 + $b3;
+
+    return $price;
 }
 ?>

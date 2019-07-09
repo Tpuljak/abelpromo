@@ -187,6 +187,7 @@
             $products[(string)$product->ID] = new Product();
             $products[(string)$product->ID]->title = $product->post_title;
             $products[(string)$product->ID]->category = ($language == 'HR') ? $product->hr_category : $product->category;
+            $products[(string)$product->ID]->url = get_permalink($product->ID);            
             array_push($product_IDs, $product->ID);
         }
     }
