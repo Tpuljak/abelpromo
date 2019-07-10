@@ -31,14 +31,26 @@
           case 'additional_options_primer':
             $products[$post_id]->primer = $meta_value;
             break;
-          case 'additional_options_white_underrint':
-            $products[$post_id]->white_underring = $meta_value;
+          case 'additional_options_primer_price':
+            $products[$post_id]->primer_price = $meta_value;
+            break;
+          case 'additional_options_white_underprint_price':
+            $products[$post_id]->white_underprint_price = $meta_value;
+            break;
+          case 'additional_options_white_underprint':
+            $products[$post_id]->white_underprint = $meta_value;
+            break;
+          case 'additional_options_engrave_price':
+            $products[$post_id]->engrave_price = $meta_value;
             break;
           case 'additional_options_engrave':
             $products[$post_id]->engrave = $meta_value;
             break;
           case 'additional_options_uv_varnish':
             $products[$post_id]->uv_varnish = $meta_value;
+            break;
+          case 'additional_options_uv_varnish_price':
+            $products[$post_id]->uv_varnish_price = $meta_value;
             break;
           case 'product_details_moq':
             $products[$post_id]->moq = $meta_value;
@@ -69,6 +81,12 @@
             break;
           case 'on_discount':
             $products[$post_id]->on_discount = $meta_value;
+            break;
+          case 'base_print_price':
+            $products[$post_id]->base_print_price = $meta_value;
+            break;
+          case 'product_price':
+            $products[$post_id]->product_price = $meta_value;
             break;
           case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
             $discounted_pricing[$post_id][$meta_key] = $meta_value;
@@ -169,6 +187,7 @@
             $products[(string)$product->ID] = new Product();
             $products[(string)$product->ID]->title = $product->post_title;
             $products[(string)$product->ID]->category = ($language == 'HR') ? $product->hr_category : $product->category;
+            $products[(string)$product->ID]->url = get_permalink($product->ID);            
             array_push($product_IDs, $product->ID);
         }
     }

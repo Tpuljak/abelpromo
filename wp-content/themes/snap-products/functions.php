@@ -89,6 +89,17 @@ add_filter( 'rewrite_rules_array', 'prepend_default_rewrite_rules' );
 /* Stops unwanted redirects when site doesn't exist */
 remove_action('template_redirect', 'redirect_canonical');
 
+function get_url_append($urlParams) {
+    $urlAppend = '';
+    foreach ($urlParams as $param) {
+        if($param != 'snap-products' && $param != 'hr') {
+            $urlAppend .= rtrim($param, '/') . '/';
+        }
+    }
+    $urlAppend = rtrim($urlAppend, '/');
+    $urlAppend = ltrim($urlAppend, '/');
+    return $urlAppend;
+}
 
 function load_more($params) {
     $requestParams = array();
@@ -117,4 +128,42 @@ add_action('rest_api_init', function () {
         'callback' => 'load_more'
     ));
 });
+
+function get_request_params() {
+    $requestParams = array();
+    parse_str($_SERVER['QUERY_STRING'], $requestParams);
+
+    return $requestParams;
+}
+
+function calculate_price($product) {
+    if (!isset($product->base_print_price) || !isset($product->product_price)) {
+        return NULL;
+    }
+
+    $price = 0.0;
+
+    $a = $product->product_price;
+    $b0 = $product->base_print_price;
+    $b1 = 0.0;
+    $b2 = 0.0;
+    $b3 = 0.0;
+    $b4 = 0.0;
+
+    if (isset($product->white_underprint) && $product->white_underprint) {
+        $b1 = $b0 * 0.25;
+    }
+
+    if (isset($product->primer) && $product->primer) {
+        $b2 = $b0 * 0.5;
+    }
+
+    if (isset($product->uv_varnish) && $product->uv_varnish) {
+        $b3 = $b0 * 0.25;
+    }
+
+    $b = $b0 + $b1 + $b2 + $b3;
+
+    return $price;
+}
 ?>
