@@ -36,6 +36,8 @@ $templateNames = array(
     'DeliveryCheckbox',
     'MaterialCheckbox',
     'PackageCheckbox',
+    'Search',
+    'FilterCheckbox'
 );
 
 include_templates($templateNames);
