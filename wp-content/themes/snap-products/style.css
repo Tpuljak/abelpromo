@@ -811,7 +811,17 @@ footer li:first-of-type {
   outline: none;
 }
 
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+.menu-grid-item {
+  box-shadow:.97mm .97mm .97mm rgba(0,0,0,.25);
+}
+
+* {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 .material-checkbox > input:checked + .checkbox,
+.filter-checkbox.checked  + .checkbox,
 .filter-checkbox > input:checked + .checkbox {
   background-image: url('./images/icons/checkbox-checked.svg');
 }
