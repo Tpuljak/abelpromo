@@ -7,7 +7,6 @@
 
 body {
   background-color: #E4E4E4;
-  width: 1920px;
 }
 
 /* Icon */
@@ -296,7 +295,8 @@ footer li:first-of-type {
 }
 
 .order-page-wrapper,
-.menu-page-wrapper {
+.menu-page-wrapper,
+.product-page-wrapper {
   padding-top: 65px;
   position: relative;
   padding-bottom: 11px;
@@ -313,7 +313,8 @@ footer li:first-of-type {
   background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(155,255,133,1) 25%, rgba(246,255,120,1) 50%, rgba(250,212,143,1) 75%, rgba(255,0,255,1) 100%);
 }
 
-.order-page-wrapper::after {
+.order-page-wrapper::after,
+.product-page-wrapper::after {
   content: '';
   clear: both;
   display: table;
@@ -324,6 +325,7 @@ footer li:first-of-type {
   width: 25%;
 }
 
+.product,
 .order-form {
   float: left;
   width: 50%;
@@ -429,6 +431,7 @@ footer li:first-of-type {
   padding: 0 60px;
 }
 
+.product-page-wrapper footer,
 .menu-page-wrapper footer,
 .order-page-wrapper footer {
   display: none !important;
@@ -638,8 +641,6 @@ footer li:first-of-type {
 }
 
 .nav {
-  padding-left: 450px;
-  padding-right: 350px;
   padding-top: 12px;
   padding-bottom: 15px;
   position: relative;
@@ -649,6 +650,8 @@ footer li:first-of-type {
 .nav-container {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 50vw;
 }
 
 .nav-container a {
@@ -924,4 +927,238 @@ footer li:first-of-type {
 
 .search img {
 
+}
+
+.product-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 46px;
+  line-height: 46px;
+  font-weight: 900;
+  color: rgb(77,77,77);
+}
+
+.title-break {
+  max-width: 100%;
+}
+
+.product-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  border: 1px solid #000;
+  text-shadow: 1.42px 1.42px 2.83px rgba(0,0,0,.75);
+  color: #E4E4E3;
+}
+
+.product-table > div {
+  display: flex;
+}
+
+.product-table > div:first-of-type {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.product-table > div:last-of-type {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.product-table > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.product-table > div:first-child > div::after {
+  content: 'pcs';
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+.product-table.EU > div:last-child > div::after {
+  content: 'E';
+  margin-left: 7px;
+}
+
+.product-table.KN > div:last-child > div::after {
+  content: 'kn';
+  margin-left: 7px;
+}
+
+.product-about {
+  position: relative;
+}
+
+.product-about p {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(77, 77, 77);
+  max-width: 480px;
+  width: 80%;
+  margin-top: 15px;
+}
+
+.product-about-icons {
+  max-width: 480px;
+  width: 80%;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.product-image {
+  position: absolute;
+  right: 0;
+  max-width: 480px;
+  width: 80%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image > img {
+  max-width: 80%;
+  width: 100%;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.product-scheme {
+  max-width: 480px;
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.product-scheme > img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-about-icons > * {
+  width: 25%;
+  flex: 1;
+  display: inline-block;
+  object-fit: contain;
+}
+
+.product-table > div > div {
+  width: 100%;
+  flex: 1;
+  height: 45px;
+  background-color: rgb(102,102,102);
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  justify-content: center;
+}
+
+.break {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.break::before {
+  height: 3px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(77,77,77);
+  content: '';
+}
+
+.break > span {
+  z-index: 2;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 0 14px;
+  line-height: 1;
+  display: inline-block;
+  background-color: #E4E4E4;
+  color: rgb(77,77,77);
+  font-size: 36px;
+}
+
+.only-desktop {
+  display: none;
+  position: fixed;
+  z-index: -1111;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .only-desktop {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E4E4;
+    color: #000;
+    font-size: 35px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 30px;
+    text-align: center;
+    line-height: 1.2;
+    z-index: 9999;
+  }
+
+  .only-desktop ~ * {
+    display: none !important;
+  }
+}
+
+/* <div class="product-details">
+<div>
+  <label>M.O.Q.:</label>
+  <div>
+    <b>50</b>
+  </div>
+</div>
+<div>
+  <label>Lead time:</label>
+  <div>
+    5 working days
+  </div> */
+
+.product-details {
+  font-size: 26px;
+  color: rgb(77,77,77);
+}
+
+.product-details > div {
+
+}
+
+.product-details > div::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.product-details > div > label {
+  width: 185px;
+  float: left;
+  font-weight: 800;
+}
+
+.product-details > div > div {
+  width: calc(100% - 185px);
+  float: left;
+}
+
+.product-details > div b {
+  font-weight: 700;
 }

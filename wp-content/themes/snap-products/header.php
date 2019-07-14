@@ -10,8 +10,14 @@
     <head>
         <?php wp_head(); ?>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap&subset=latin-ext" rel="stylesheet">
-        <meta name="viewport" content="width=1920">
     </head>
+
+    <div class="only-desktop">
+        <div>
+            This page is only supported on desktop devices!
+        </div>
+    </div>
+
     <nav class="nav">
         <div class="nav-container">
             <a href="<?php echo home_url(); ?>">
