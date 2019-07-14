@@ -27,8 +27,8 @@ body {
  */
 
 footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 11mm;
+  padding-bottom: 11mm;
   background-color: #3D3F3E;
 }
 
@@ -167,9 +167,8 @@ footer li:first-of-type {
 
 /* Bottom hero */
 .bottom-hero {
-  height: 510px;
-  padding-top: 100px;
-  padding-bottom: 100px; 
+  padding-top: 37mm;
+  padding-bottom: 37mm; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -195,11 +194,16 @@ footer li:first-of-type {
 }
 
 .bottom-hero > h1 {
-
+  margin-bottom: 25mm;
+  text-shadow: -.5mm .5mm 1mm #000;
+  font-size: 80px;
+  text-align: center;
+  color: #fff;
 }
 
 .bottom-hero > h1 > span {
   display: block;
+  text-transform: uppercase;
 }
 
 .bottom-hero a {
@@ -1316,4 +1320,86 @@ br + br {
 
 .order-page-wrapper {
   padding-bottom: 150px;
+}
+
+.bottom-hero a {
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: -.25mm .25mm .25mm rgba(0,0,0,1);
+}
+
+footer li:first-of-type {
+  margin-left: 0px;
+  position: relative;
+  font-weight: bolder;
+}
+
+footer li:first-of-type::before {
+  content: '';
+  background-color: #3D3F3E;
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.branding-options article {
+  min-height: 165mm;
+  position: relative;
+}
+
+.branding-options article::before {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  z-index: -1;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(155,255,133,1) 25%, rgba(246,255,120,1) 50%, rgba(250,212,143,1) 75%, rgba(255,0,255,1) 100%);
+  content: '';
+}
+
+.branding-options > h2 {
+  text-shadow: .5mm .5mm .5mm rgba(0,0,0,0.5);
+  font-size: 130px;
+  line-height: 1;
+  margin-top: 16mm;
+  margin-bottom: 16mm;
+}
+
+.branding-options article > img {
+  height: 70mm;
+}
+
+.branding-options article > h3 {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 1500px) {
+  .branding-options > div {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .branding-options article {
+    width: 33.33%;
+    flex: auto;
+    margin: 20px;
+    min-height: 10mm;
+  }
+}
+
+.tooltiptext {
+  min-width: 280px !important;
+  width: 100%;
+  right: 0;
+  transform: none !important;
+  left: auto !important;
+}
+
+.tooltiptext::after {
+  left: auto !important;
+  right: 5px;
 }
