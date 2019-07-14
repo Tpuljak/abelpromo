@@ -350,14 +350,19 @@ footer li:first-of-type {
   border: 2px solid #585858;
 }
 
-.input-field > label {
+.input-field label {
   padding: 25px 12px;
   background-color: #666;
   color: #fff;
   text-transform: uppercase;
   min-width: 185px;
   font-size: 18px;
+  font-weight: bold;
   line-height: 1;
+}
+
+.input-group p {
+  display: none !important;
 }
 
 .input-group {
@@ -365,11 +370,11 @@ footer li:first-of-type {
   justify-content: space-between;
 }
 
-.input-group-label-140 > .input-field > label {
+.input-group-label-140 .input-field label {
   min-width: 140px;
 }
 
-.input-group-label-160 > .input-field > label {
+.input-group-label-160 .input-field label {
   min-width: 160px;
 }
 
@@ -378,9 +383,13 @@ footer li:first-of-type {
   max-width: calc(50% - 2.5px);
 }
 
-.input-field > input,
-.input-field > textarea,
-.input-field > select {
+.input-field textarea {
+  min-height: 125px;
+}
+
+.input-field input,
+.input-field textarea,
+.input-field select {
   padding: 25px;
   font-size: 18px;
   color: #4d4d4d;
@@ -393,13 +402,17 @@ footer li:first-of-type {
   width: 100%;
 }
 
+.input-field span {
+  width: 100%;
+}
+
 .input-field-extended {
   flex-wrap: wrap;
 }
 
 .form-divider {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
   position: relative;
@@ -413,7 +426,8 @@ footer li:first-of-type {
   text-transform: uppercase;
   color: #4D4D4D;
   z-index: 1;
-  font-size: 22px;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .form-divider::after {
@@ -661,8 +675,10 @@ footer li:first-of-type {
   text-transform: uppercase;
   align-items: center;
   color: #E4E4E4;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: bold;
+  text-shadow: .61mm .61mm .61mm rgba(0,0,0,0.5);
 }
 
 .nav-container img {
@@ -759,12 +775,13 @@ footer li:first-of-type {
   text-decoration: none;
   background-color: #666666;
   color: #F2F2F2;
-  font-size: 40px;
+  font-size: 55px;
   text-align: center;
   justify-content: center;
   display: flex;
   align-items: center;
   width: 100%;
+  font-weight: bold;
 }
 
 .contact-send,
@@ -784,6 +801,11 @@ footer li:first-of-type {
   content: '';
 }
 
+.contact-upload {
+  font-weight: bold;
+    font-size: 20px;
+}
+
 .filter-checkbox {
   text-transform: uppercase;
   margin-bottom: 0;
@@ -795,6 +817,11 @@ footer li:first-of-type {
   align-items: center;
   position: relative;
   margin-bottom: 10px;
+}
+
+.order-form label {
+  display: flex;
+  align-items: center;
 }
 
 .material-checkbox.unchecked {
@@ -1001,6 +1028,7 @@ footer li:first-of-type {
   max-width: 480px;
   width: 50%;
   margin-top: 15px;
+  min-height: 170px;
 }
 
 .product-about-icons {
@@ -1262,4 +1290,30 @@ br + br {
   max-width: 100%;
   height: 100%;
   z-index: -2;
+}
+
+.order-form [type="submit"] {
+  display: none !important;
+}
+
+.order-form br {
+  display: none !important;
+}
+
+.input-field-extended label {
+  position: absolute;
+}
+
+.input-field-extended textarea {
+  padding-top: 90px;
+  width: 100%;
+  height: 195px;
+}
+
+.input-field-extended span {
+  width: 100%;  
+}
+
+.order-page-wrapper {
+  padding-bottom: 150px;
 }
