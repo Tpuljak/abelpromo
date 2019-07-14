@@ -12,7 +12,7 @@
 
     <div class="product-title">Vienna mug</div>
     <img src="<?php echo images; ?>/title-break.png" alt="" class="title-break">
-    <div class="product-about">
+    <div class="product-about diagonal">
       <p>With a touchscreen nib and large print area,
 the Contour™ Digital Touch is ideal for any promotional requirement. The stylus can be used on both capacitve and resistive touchscreen phones and tablets. The patented barrel has been designed to exploit the full potential of the digital printing process.</p>
       <div class="product-about-icons">
@@ -113,7 +113,7 @@ the Contour™ Digital Touch is ideal for any promotional requirement. The stylu
     <aside class="order-details">
         <div class="colour">
           <div class="colour-title">Colour</div>
-          <div>
+          <div class="colour-wrap">
             <div style="background-color: red"></div>
             <div style="background-color: red"></div>
             <div style="background-color: red"></div>
@@ -140,13 +140,13 @@ the Contour™ Digital Touch is ideal for any promotional requirement. The stylu
         <?php DeliveryCheckbox('orange', '7days'); ?>
         <?php DeliveryCheckbox('red', 'express'); ?>
         <div class="order-details-break">
-            <img src="<?php echo images; ?>/border.png" alt="">
+            <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
         <?php MaterialCheckbox('unchecked', '-full', 'underprint', 'info'); ?>
         <?php MaterialCheckbox('empty', '-full-dotted', 'primer', 'info'); ?>
         <?php MaterialCheckbox('empty', '-lines', 'uv', 'info'); ?>
         <?php MaterialCheckbox('empty', '', 'engrave', 'info'); ?>
-        <a class="contact-send" href="#"><?php echo ($language == 'HR') ? 'Pošalji' : 'Send'; ?></a>
+        <a class="contact-send product-buy" href="#"><?php echo ($language == 'HR') ? 'Pošalji' : 'Send'; ?></a>
     </aside>
 
     <?php get_footer(); ?>
