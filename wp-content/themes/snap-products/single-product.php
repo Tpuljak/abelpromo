@@ -36,13 +36,13 @@
         <img src="<?php echo $product->line_drawing; ?>" alt="">
       </div>
       <div class="product-image">
-        <img src="<?php echo $product->images[0]->image; ?>" colour="<?php echo $product->images[0]->colour; ?>" alt="">
+        <img src="<?php echo $product->images[0]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[0]->colour, '#')); ?>" alt="">
       </div>      
         <?php 
             for ($i = 1; $i < count($product->images); $i++) {
               ?>
               <div class="product-image">
-                <img src="<?php echo $product->images[$i]->image; ?>" colour="<?php echo $product->images[$i]->colour; ?>" style="opacity: 0" alt="">
+                <img src="<?php echo $product->images[$i]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[$i]->colour, '#')); ?>" style="opacity: 0" alt="">
               </div>
               <?php
           }
@@ -120,7 +120,7 @@
             <?php 
               foreach ($product->images as $img) {
                 ?>
-                  <div style="background-color: <?php echo $img->colour; ?>"></div>
+                  <div style="background-color: <?php echo $img->colour; ?>" class="colour-switch"></div>
                 <?php
               }
             ?>
