@@ -12,8 +12,8 @@
   }
 
   $options = map_additional_options($product);
+
   // var_dump($product);
-  var_dump($options);
 ?>
 
 <?php get_header(); ?>
@@ -36,8 +36,17 @@
         <img src="<?php echo $product->line_drawing; ?>" alt="">
       </div>
       <div class="product-image">
-        <img src="<?php echo $product->images[0]->image; ?>" alt="">
-      </div>
+        <img src="<?php echo $product->images[0]->image; ?>" colour="<?php echo $product->images[0]->colour; ?>" alt="">
+      </div>      
+        <?php 
+            for ($i = 1; $i < count($product->images); $i++) {
+              ?>
+              <div class="product-image">
+                <img src="<?php echo $product->images[$i]->image; ?>" colour="<?php echo $product->images[$i]->colour; ?>" style="opacity: 0" alt="">
+              </div>
+              <?php
+          }
+        ?>
     </div>
 
     <div class="break">
@@ -46,7 +55,7 @@
 
     <div class="product-details">
       <div>
-        <label>M.O.Q.:</label>
+        <label><?php echo ($language == 'HR') ? 'M.N.' : 'M.O.Q.'; ?>:</label>
         <div>
           <b><?php echo $product->moq; ?></b>
         </div>
@@ -58,19 +67,19 @@
         </div>
       </div>
       <div>
-        <label>Colours:</label>
+        <label><?php echo ($language == 'HR') ? 'Boje:' : 'Colours:'; ?></label>
         <div>
           <?php echo nl2br($product->colours_field); ?>
         </div>
       </div>
       <div>
-        <label>Refill:</label>
+        <label><?php echo ($language == 'HR') ? 'Punjenje:' : 'Refill:'; ?></label>
         <div>
           <?php echo $product->refill; ?>
         </div>
       </div>
       <div>
-        <label>Print area:</label>
+        <label><?php echo ($language == 'HR') ? 'Veličina printa:' : 'Print area:'; ?></label>
         <div>
           <b><?php echo $product->print_area['width']; ?></b> x <b><?php echo $product->print_area['height']; ?></b><?php echo $product->print_area['unit']; ?>
         </div>
@@ -78,7 +87,7 @@
     </div>
 
     <div class="break">
-      <span>PRICING</span>
+      <span><?php echo ($language == 'HR') ? 'CIJENE' : 'PRICING'; ?></span>
     </div>
 
       <div class="product-table EU">
@@ -106,22 +115,19 @@
 
     <aside class="order-details">
         <div class="colour">
-          <div class="colour-title">Colour</div>
-          <div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
-            <div style="background-color: red"></div>
+          <div class="colour-title"><?php echo ($language == 'HR') ? 'Boja' : 'Colour'; ?></div>
+          <div class="colour-wrap">
+            <?php 
+              foreach ($product->images as $img) {
+                ?>
+                  <div style="background-color: <?php echo $img->colour; ?>"></div>
+                <?php
+              }
+            ?>
           </div>
         </div>
         <div class="quantity">
-          <div class="quantity-title">Quantity</div>
+          <div class="quantity-title"><?php echo ($language == 'HR') ? 'Količina' : 'Quantity'; ?></div>
           <div class="quantity-select">
             <span>-</span>
             <span>250</span>
@@ -134,14 +140,14 @@
         <?php DeliveryCheckbox('orange', '7days'); ?>
         <?php DeliveryCheckbox('red', 'express'); ?>
         <div class="order-details-break">
-            <img src="<?php echo images; ?>/border.png" alt="">
+            <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
         <?php 
           foreach ($options as $opt) {
             MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
           }
         ?>
-        <a class="contact-send" href="#"><?php echo ($language == 'HR') ? 'Pošalji' : 'Send'; ?></a>
+        <a class="contact-send product-buy" href="#"><?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?></a>
     </aside>
 
     <?php get_footer(); ?>
