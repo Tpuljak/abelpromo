@@ -21,20 +21,22 @@
 <?php get_header(); ?>
 <div class="order-page-wrapper">
     <?php Sidebar('vertical'); ?>
-    <?php 
-    // echo do_shortcode('[contact-form-7 id="165" title="Order"]');
-    ?>
     <main class="order-form">
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Proizvod' : 'Product'; ?></label>
-            <input type="text" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>">
+            <input type="text" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo $product->title; ?>">
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>
-            <select name="colour" autocomplete="on">
-                <option value="1">boja 1</option>
-                <option value="2">boja 2</option>
-                <option value="3">boja 3</option>
+            <select>
+                <?php
+                    foreach ($product->images as $img) {
+                        $colour = $img->colour
+                        ?>
+                            <option value="<?php echo $colour; ?>"><?php echo $colour; ?></option>
+                        <?php
+                    }
+                ?>
             </select>
         </div>
         <div class="input-field">
@@ -119,10 +121,11 @@
         <div class="order-details-break">
         <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
-        <?php MaterialCheckbox('unchecked', '-full', 'underprint', 'info'); ?>
-        <?php MaterialCheckbox('empty', '-full-dotted', 'primer', 'info'); ?>
-        <?php MaterialCheckbox('empty', '-lines', 'uv', 'info'); ?>
-        <?php MaterialCheckbox('empty', '', 'engrave', 'info'); ?>
+        <?php 
+          foreach ($options as $opt) {
+            MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
+          }
+        ?>
         <a class="contact-upload" href="#">
         <input type="file">
             <img src="<?php echo images; ?>/icons/upload.svg" alt="">

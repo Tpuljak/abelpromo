@@ -49,6 +49,20 @@
 
       if (in_array('featured', $filters)) {
         $products_query .= " AND t.name = 'Featured'";
+      } elseif (in_array('writing', $filters)) {
+        $products_query .= " AND t.name = 'Writing accessories'";
+      }  elseif (in_array('remotes', $filters)) {
+        $products_query .= " AND t.name = 'Remotes and keychains'";
+      }  elseif (in_array('technology', $filters)) {
+        $products_query .= " AND t.name = 'Technology'";
+      }  elseif (in_array('bottles', $filters)) {
+        $products_query .= " AND t.name = 'Bottles'";
+      }  elseif (in_array('textile', $filters)) {
+        $products_query .= " AND t.name = 'Textile'";
+      }  elseif (in_array('stickers', $filters)) {
+        $products_query .= " AND t.name = 'Print &amp; Cut stickers'";
+      }  elseif (in_array('diaries', $filters)) {
+        $products_query .= " AND t.name = 'Diaries'";
       }
 
       if (in_array('discounted', $filters)) {
