@@ -26,6 +26,9 @@
           case $prepend.'product_description':
             $products[$post_id]->description = $meta_value;
             break;
+          case 'thumbnail':
+            $products[$post_id]->thumbnail = get_field('thumbnail', $post_id);
+            break;
           case 'quantity_choosing_step':
             $products[$post_id]->quantity_choosing_step = $meta_value;
             break;
