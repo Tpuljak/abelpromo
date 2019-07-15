@@ -925,6 +925,15 @@ footer li:first-of-type {
   background-color: #BCBCBC;
   padding-top: 100%;
   position: relative;
+  
+}
+.menu-grid-item > img {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 .menu-grid-item::before {
