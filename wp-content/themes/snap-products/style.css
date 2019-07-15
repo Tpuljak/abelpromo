@@ -1195,6 +1195,19 @@ br + br {
   height: 100%;
 }
 
+.no-products {
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E4E4;
+  color: #000;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 30px;
+  text-align: center;
+  line-height: 1.2;
+}
+
 @media screen and (max-width: 1200px) {
   .only-desktop {
     position: fixed;

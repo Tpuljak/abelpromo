@@ -13,22 +13,25 @@
   
   $products = get_products($offset = 0, $how_many = 20, $filters);
 
-  $products = array_values($products);
+  if ($products != NULL) {
+    $products = array_values($products);
 
-  //TODO: DELETE
-  while (count($products) < 14) {
-    $products = array_merge($products, $products);
+    //TODO: DELETE
+    while (count($products) < 14) {
+      $products = array_merge($products, $products);
+    }
+  
+    $chunked = array_chunk($products, 5);     
   }
-
-  $chunked = array_chunk($products, 5);
 ?>
 
 <?php get_header(); ?>
 <div class="menu-page-wrapper">
     <?php Sidebar('vertical'); ?>
-
-    <main class="menu-grid">
-        <?php
+  
+    <?php
+        if ($products != NULL) {
+            ?> <main class="menu-grid"> <?php
             $condition = 0;
             foreach($chunked as $index => $prods) {
                 if ($index % 2 == 0) {
@@ -43,8 +46,23 @@
                     <?php
                 }
             }
-        ?>
-    </main>
+            ?> </main> <?php
+        }
+    ?>
+
+    <?php
+        if ($products == NULL) {
+            ?> 
+                <main style="float: left; width: 50%;">
+                    <div class="no-products">
+                        <?php 
+                            echo ($language == 'HR') ? 'NE POSTOJE PROIZVODI OVE KATEGORIJE.' : 'NO PRODUCTS IN THIS CATEGORY.'; 
+                        ?>
+                    </div>
+                </main>
+            <?php
+        }
+    ?>
 
     <aside class="order-details">
         <?php Search(); ?>
