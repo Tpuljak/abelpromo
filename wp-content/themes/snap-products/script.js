@@ -40,3 +40,21 @@ function rgbToHex(col)
         return colHex;
     }
 }
+
+function incrementQuantity(step) {
+  var quantity = document.querySelector('.quantity--number');
+
+  if (quantity) {
+    quantity.innerHTML = parseInt(quantity.innerHTML) + step;
+  }
+}
+
+function decrementQuantity(step, moq) {
+  var quantity = document.querySelector('.quantity--number');
+
+  if (quantity) {
+    if (parseInt(quantity.innerHTML) - step >= moq) {
+      quantity.innerHTML = parseInt(quantity.innerHTML) - step;
+    }
+  }
+}

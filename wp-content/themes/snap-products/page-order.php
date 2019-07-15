@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 <div class="order-page-wrapper">
     <?php Sidebar('vertical'); ?>
-    <?php echo do_shortcode('[contact-form-7 id="14" title="Contact form 1"]');?>
+    <?php echo do_shortcode('[contact-form-7 id="165" title="Order"]');?>
 
     <aside class="order-details">
         <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>

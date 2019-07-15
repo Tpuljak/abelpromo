@@ -129,9 +129,9 @@
         <div class="quantity">
           <div class="quantity-title"><?php echo ($language == 'HR') ? 'Količina' : 'Quantity'; ?></div>
           <div class="quantity-select">
-            <span>-</span>
-            <span>250</span>
-            <span>+</span>
+            <span onclick="decrementQuantity(<?php echo $product->quantity_choosing_step; ?>, <?php echo $product->moq; ?>)">-</span>
+            <span class="quantity--number">250</span>
+            <span onclick="incrementQuantity(<?php echo $product->quantity_choosing_step; ?>)">+</span>
           </div>
         </div>
         <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
