@@ -234,13 +234,17 @@ footer li:first-of-type {
 }
 
 .we-do .arrow {
-  width: 122px;
+  max-width: 122px;
   margin-left: 22.5px;
   margin-right: 22.5px;
 }
 
+.we-do > div * {
+  flex: 1;
+}
+
 .we-do img:not(.arrow) {
-  height: 340px;
+  max-height: 340px;
 }
 
 /* Branding options */
@@ -279,7 +283,7 @@ footer li:first-of-type {
   margin-left: 10px;
   margin-right: 10px;
   flex: 1;
-  width: calc(20% - 30px);
+  width: calc(20% - 20px);
   background-color: #F0F0F0;
   padding: 30px;
   height: 480px;
@@ -1494,4 +1498,8 @@ body {
 
 .order-stepper span {
   text-align: center;
+}
+
+.we-do > div {
+  overflow: hidden;
 }
