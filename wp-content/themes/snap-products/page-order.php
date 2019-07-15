@@ -39,7 +39,11 @@
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Količina' : 'Pieces'; ?></label>
-            <input name="quantity" autocomplete="on" type="number" placeholder="250">
+            <div class="order-stepper">
+            <span>-</span>
+            <span>50</span>
+            <span>+</span>
+            </div>
         </div>
         <div class="form-divider">
              <span><?php echo ($language == 'HR') ? 'Detalji naručitelja' : 'Customer details'; ?></span>
