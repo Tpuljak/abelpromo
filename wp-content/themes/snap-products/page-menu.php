@@ -41,8 +41,11 @@
                 }
 
                 foreach ($prods as $p_index => $p) {
+                    // var_dump($p);
                     ?>
-                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>"></article>
+                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>">
+                            <img src="<?php echo ($p->thumbnail); ?>" alt="" srcset="">
+                        </article>
                     <?php
                 }
             }
