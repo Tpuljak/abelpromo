@@ -2,6 +2,7 @@
   class Product {}
   class Price {}
   class Image {}
+  class Option {}
 
   function transform_to_product_objects($products_DTO, $products, $is_single) {
     global $language;
@@ -202,5 +203,43 @@
     $products = transform_to_product_objects($products_DTO, $products, $is_single);
 
     return $products;
+  }
+
+  function map_additional_options($product) {
+    global $language;
+
+    update_language();
+
+    $options = array();
+
+    for ($i = 0; $i < 4; $i++) {
+      $options[$i] = new Option();
+    }
+
+    $options[0]->name = 'underprint';
+    $options[1]->name = 'engrave';
+    $options[2]->name = 'uv';
+    $options[3]->name = 'primer';
+
+    $options[0]->icon = '-full';
+    $options[1]->icon = '';
+    $options[2]->icon = '-lines';
+    $options[3]->icon = '-full-dotted';
+
+    $options[0]->checkbox = ($product->white_underprint) ? 'empty' : 'unchecked';
+    $options[1]->checkbox = ($product->engrave) ? 'empty' : 'unchecked';
+    $options[2]->checkbox = ($product->uv_varnish) ? 'empty' : 'unchecked';
+    $options[3]->checkbox = ($product->primer) ? 'empty' : 'unchecked';
+
+    $options[0]->info = ($language == 'HR') ? 'Dodavanje bijelog sloja ispod dizajna daje neprozirnu bazu koja dopušta da boje doista iskaču, dok bijela ne utječe na nijanse koje ste odabrali za vaš dizajn. Veliki napredak bez ikakvih nedostataka! Također daje vašem dizajnu dodatnu oštrinu, što dovodi do visokokvalitetnog ispisa.' :
+                          'Adding a white layer underneath your design gives an opaque base that allows for the colours to truly pop out, while the white does not affect the shades you chose for your design. Great improvement with no drawbacks at all! It also gives your design additional sharpness, leading to high-quality printing.';
+    $options[1]->info = ($language == 'HR') ? 'Graviranje je proces obrade rotirajućim rezačima za uklanjanje materijala pomicanjem rezača u objekt.' :
+                          'Engraving is the process of machining using rotary cutters to remove material by advancing a cutter into a object.';
+    $options[2]->info = ($language == 'HR') ? 'UV lak je prozirna tvrda zaštitna površina ili film. Primjenjuje se kao posljednji korak u postizanju sjajnog ili mat efekta te zaštite. Proizvodima daje dodatnu vrijednost i dubinu.' :
+                          'Varnish is a clear transparent hard protective finish or film. It is applied as a final step to achieve gloss or satin effects and protection. It gives extra value and depth to the products.';
+    $options[3]->info = ($language == 'HR') ? 'Prajmer omogućuje završnu boju da se lijepi mnogo bolje nego da se koristi sama. U tu svrhu temeljni premaz dizajniran je tako da prianja na površine i formira vezni sloj koji je bolje pripremljen za primanje boje.' :
+                          'Primer allows finishing paint to adhere much better than if it were used alone. For this purpose, primer is designed to adhere to surfaces and to form a binding layer that is better prepared to receive the paint.';
+    
+    return $options;
   }
 ?>

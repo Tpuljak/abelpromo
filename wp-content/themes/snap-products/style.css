@@ -1123,6 +1123,7 @@ br + br {
   margin: 5px;
   border: 1px solid #000;
   box-shadow: 2.72px 2.72px 2.72px rgba(0,0,0,.25);
+  cursor: pointer;
 }
 
 .product-scheme {

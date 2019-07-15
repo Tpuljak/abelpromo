@@ -430,8 +430,8 @@
             "sub_fields": [
                 {
                     "key": "field_5d235928e449c",
-                    "label": "White underrint",
-                    "name": "white_underrint",
+                    "label": "White underprint",
+                    "name": "white_underprint",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -449,8 +449,8 @@
                 },
                 {
                     "key": "field_5d245d89f092d",
-                    "label": "White underrint price",
-                    "name": "white_underrint_price",
+                    "label": "White underprint price",
+                    "name": "white_underprint_price",
                     "type": "number",
                     "instructions": "",
                     "required": 0,
@@ -866,5 +866,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562664566
+    "modified": 1563097595
 }

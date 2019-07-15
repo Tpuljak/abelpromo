@@ -5,7 +5,7 @@
 
   $products = get_products(0, 10, ['discounted']);
 
-  var_dump($products);
+  // var_dump($products);
 ?>
 
 <?php get_header(); ?>
