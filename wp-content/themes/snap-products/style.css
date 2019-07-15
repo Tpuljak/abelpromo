@@ -258,20 +258,32 @@ footer li:first-of-type {
   margin-bottom: 100px;
 }
 
+.branding-options article > img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .branding-options > div {
-  display: flex;
+  /* display: flex; */
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.branding-options > div::after {
+  content: '';
+  clear: both;
+  display: table;
 }
 
 .branding-options article {
   margin-left: 10px;
   margin-right: 10px;
   flex: 1;
-  width: 100%;
+  width: calc(20% - 30px);
   background-color: #F0F0F0;
   padding: 30px;
   height: 480px;
+  float: left;
   display: flex;
   flex-direction: column;
   /* gradient border */
@@ -452,7 +464,7 @@ footer li:first-of-type {
 .product-page-wrapper footer,
 .menu-page-wrapper footer,
 .order-page-wrapper footer {
-  display: none !important;
+  /* display: none !important; */
   float: left;
   width: 100%;
 }
@@ -1319,8 +1331,8 @@ br + br {
   width: 100%;  
 }
 
-.order-page-wrapper {
-  padding-bottom: 150px;
+.order-page-wrapper footer{
+  margin-top: 150px;
 }
 
 .bottom-hero a {
@@ -1378,7 +1390,7 @@ footer li:first-of-type::before {
 }
 
 
-@media screen and (max-width: 1500px) {
+/* @media screen and (max-width: 1500px) {
   .branding-options > div {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1390,8 +1402,11 @@ footer li:first-of-type::before {
     margin: 20px;
     min-height: 10mm;
   }
-}
+} */
 
+.branding-options article {
+  margin: 10px;
+}
 .tooltiptext {
   min-width: 280px !important;
   width: 100%;
@@ -1409,4 +1424,55 @@ footer li:first-of-type::before {
   padding: 15px;
   text-align: justify;
   text-justify: inter-word;
+}
+
+.diagonal .product-image {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.product-about.diagonal {
+  margin-bottom: 80px;
+}
+
+.product-image > img {
+  max-height: 450px;
+}
+
+.product-scheme > img {
+  max-height: 200px;
+}
+
+.contact-upload {
+  position: relative;
+}
+
+.contact-upload > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  opacity: 0;
+}
+
+.contact-send,
+.contact-upload {
+  cursor: pointer;
+}
+
+.branding-options article > h3 {
+  font-size: 25px;
+}
+@media screen and (min-width: 1600px) {
+  .branding-options article > h3 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .branding-options article > h3 {
+    font-size: 50px;
+  }
 }
