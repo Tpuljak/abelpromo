@@ -1581,11 +1581,9 @@ body {
   justify-content: center;
   padding-bottom: 20px;
   background-color: transparent;
-}
-
-
   opacity: 1;
 }
+
 
 .sidebar.vertical ul:not(:hover) li::after {
   content: none;
