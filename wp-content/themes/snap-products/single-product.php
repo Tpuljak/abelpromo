@@ -147,7 +147,9 @@
             MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
           }
         ?>
-        <a class="contact-send product-buy" href="#"><?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?></a>
+        <a class="contact-send product-buy" onclick="redirectToOrder()">
+          <?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?>
+        </a>
     </aside>
 
     <?php get_footer(); ?>

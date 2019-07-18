@@ -1,5 +1,3 @@
-console.log("js works?")
-
 window.onload = () => {
   var colourSwitches = document.querySelectorAll('.colour-switch');
 
@@ -7,6 +5,7 @@ window.onload = () => {
     colourSwitches.forEach(cs => {
       cs.addEventListener('click', changeImageColour);
     })
+    colourSwitches[0].setAttribute('active', '');
   }
 }
 
@@ -14,9 +13,19 @@ function changeImageColour(e) {
   var cs = e.target;
 
   if (cs) {
+    var colourSwitches = document.querySelectorAll('.colour-switch');
+
+    colourSwitches.forEach(obj => obj.removeAttribute('active'));
+    colourSwitches.forEach(obj => {
+      if (obj == cs) {
+        obj.setAttribute('active', '');
+      }
+    })
+
     var colour = rgbToHex(cs.style.backgroundColor);
 
-    document.querySelectorAll('[colour]').forEach(obj => obj.style.opacity = 0);
+    var colours = document.querySelectorAll('[colour]');
+    colours.forEach(obj => obj.style.opacity = 0);
 
     var target = document.querySelector('[colour=' + CSS.escape(colour) + ']');
 
@@ -57,4 +66,16 @@ function decrementQuantity(step, moq) {
       quantity.innerHTML = parseInt(quantity.innerHTML) - step;
     }
   }
+}
+
+function redirectToOrder() {
+  var activeColour = document.querySelector('.colour-switch[active]');
+  
+  activeColour = rgbToHex(activeColour.style.backgroundColor);
+
+  var quantity = document.querySelector('.quantity--number');
+
+  if (quantity) quantity = quantity.innerHTML;
+
+  var materialCbxs = document.querySelectorAll('.material-checkbox');
 }
