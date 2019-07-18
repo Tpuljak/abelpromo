@@ -20,7 +20,7 @@
 <div class="product-page-wrapper">
     <?php Sidebar('vertical'); ?>
 
-    <main class="product">
+    <main class="product" product-id="<?php echo get_the_ID(); ?>">
 
     <div class="product-title"><?php echo $product->title; ?></div>
     <img src="<?php echo images; ?>/title-break.png" alt="" class="title-break">
@@ -147,7 +147,9 @@
             MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
           }
         ?>
-        <a class="contact-send product-buy" href="#"><?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?></a>
+        <a class="contact-send product-buy" onclick="redirectToOrder()">
+          <?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?>
+        </a>
     </aside>
 
     <?php get_footer(); ?>

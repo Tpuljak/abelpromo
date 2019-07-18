@@ -1609,6 +1609,10 @@ opacity: 0;
   width: 10%;
 }
 
+.delivery-checkbox.checked {
+  pointer-events: none;
+}
+
 .product-about-icons > * {
   margin: 5px;
   width: calc(25% - 10px);

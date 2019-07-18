@@ -123,9 +123,11 @@
         <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
         <?php 
-          foreach ($options as $opt) {
-            MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
-          }
+            if ($options) {
+                foreach ($options as $opt) {
+                    MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
+                }
+            }
         ?>
         <a class="contact-upload" href="#">
         <input type="file">
