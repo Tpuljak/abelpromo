@@ -319,7 +319,6 @@ footer li:first-of-type {
 .product-page-wrapper {
   padding-top: 65px;
   position: relative;
-  padding-bottom: 11px;
 }
 
 .order-page-wrapper::before {
@@ -468,6 +467,7 @@ footer li:first-of-type {
 .product-page-wrapper footer,
 .menu-page-wrapper footer,
 .order-page-wrapper footer {
+  margin-top: 30px;
   /* display: none !important; */
   float: left;
   width: 100%;
@@ -506,8 +506,8 @@ footer li:first-of-type {
 }
 
 .sidebar.vertical {
-  position: sticky;
-  top: 30px;
+  /* position: sticky;
+  top: 30px; */
 }
 
 .sidebar.vertical ul {
@@ -873,6 +873,7 @@ footer li:first-of-type {
 }
 
 .material-checkbox > input:checked + .checkbox,
+.material-checkbox.checked + .checkbox,
 .filter-checkbox.checked  + .checkbox,
 .filter-checkbox > input:checked + .checkbox {
   background-image: url('./images/icons/checkbox-checked.svg');
@@ -1520,6 +1521,7 @@ body {
 
 .order-stepper span {
   text-align: center;
+  cursor: pointer;
 }
 
 .we-do > div {
@@ -1591,4 +1593,16 @@ body {
 
 .sidebar.vertical ul:not(:hover) span {
 opacity: 0;
+}
+
+.we-do > div {
+  margin: 0 20px;
+}
+
+.we-do .arrow {
+  margin: 0;
+}
+
+.we-do > div * {
+  width: 10%;
 }
