@@ -28,7 +28,7 @@
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>
-            <select>
+            <select style="height: 74px !important;">
                 <?php
                     foreach ($product->images as $img) {
                         $colour = $img->colour

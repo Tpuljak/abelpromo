@@ -3,7 +3,7 @@
     <input type="checkbox" name="material">
     <div class="checkbox"></div>
     <img src="<?php echo images; ?>/icons/arrow<?php echo $arrow; ?>.svg" alt="" class="arrow">
-    <img src="<?php echo images; ?>/icons/material/<?php echo $type; ?>.svg" alt="" class="type">
+    <img src="<?php echo images; ?>/type/<?php echo $type; ?>.png" alt="" class="type">
     <?php if($info) { ?>
       <?php Info($info); ?>
     <?php } ?>

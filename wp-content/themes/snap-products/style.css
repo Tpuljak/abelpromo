@@ -874,6 +874,8 @@ footer li:first-of-type {
 
 .material-checkbox > input:checked + .checkbox,
 .material-checkbox.checked > .checkbox,
+.material-checkbox.checked + .checkbox,
+.filter-checkbox.checked  > .checkbox,
 .filter-checkbox.checked  + .checkbox,
 .filter-checkbox > input:checked + .checkbox {
   background-image: url('./images/icons/checkbox-checked.svg');
@@ -1609,4 +1611,23 @@ opacity: 0;
 
 .delivery-checkbox.checked {
   pointer-events: none;
+}
+
+.product-about-icons > * {
+  margin: 5px;
+  width: calc(25% - 10px);
+}
+
+.material-checkbox .type {
+  height: 30px;
+}
+
+.delivery-checkbox .time {
+  height: 25px;
+}
+
+.material-checkbox .info-bubble,
+.package-checkbox .info-bubble,
+.delivery-checkbox .info-bubble {
+  right: -40px;
 }
