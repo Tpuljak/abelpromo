@@ -28,7 +28,7 @@
         </div>
         <div class="input-field" style="position: relative">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>
-            <select style="height: 74px !important;">
+            <select style="height: 74px !important;" class="colour-dropdown">
                 <?php
                     foreach ($product->images as $img) {
                         $colour = $img->colour
@@ -38,14 +38,14 @@
                     }
                 ?>
             </select>
-            <div style="position: absolute; border: 1px solid black; right: 30px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background-color: red"></div>
+            <div class="colour-box" style="position: absolute; border: 1px solid black; right: 30px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; opacity: 0;"></div>
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Količina' : 'Pieces'; ?></label>
             <div class="order-stepper">
-            <span>-</span>
-            <span>50</span>
-            <span>+</span>
+            <span onclick="decrementQuantity(<?php echo $product->quantity_choosing_step; ?>, <?php echo $product->moq; ?>)">-</span>
+            <span class="quantity--number">50</span>
+            <span onclick="incrementQuantity(<?php echo $product->quantity_choosing_step; ?>)">+</span>
             </div>
         </div>
         <div class="form-divider">

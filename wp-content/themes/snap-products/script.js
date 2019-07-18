@@ -7,6 +7,17 @@ window.onload = () => {
     });
     colourSwitches[0].setAttribute('active', '');
   }
+
+  var colourDropdown = document.querySelector('.colour-dropdown');
+  if (colourDropdown) {
+    var cb = document.querySelector('.colour-box');
+    cb.style.backgroundColor = colourDropdown.value;
+    cb.style.opacity = 1;
+    
+    colourDropdown.addEventListener('change', (e) => {
+      document.querySelector('.colour-box').style.backgroundColor = e.target.value;
+    })
+  }
 }
 
 function changeImageColour(e) {
