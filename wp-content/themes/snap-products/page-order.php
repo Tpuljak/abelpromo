@@ -26,9 +26,9 @@
             <label><?php echo ($language == 'HR') ? 'Proizvod' : 'Product'; ?></label>
             <input type="text" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo $product->title; ?>">
         </div>
-        <div class="input-field">
+        <div class="input-field" style="position: relative">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>
-            <select>
+            <select style="height: 74px !important;">
                 <?php
                     foreach ($product->images as $img) {
                         $colour = $img->colour
@@ -38,6 +38,7 @@
                     }
                 ?>
             </select>
+            <div style="position: absolute; border: 1px solid black; right: 30px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background-color: red"></div>
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Količina' : 'Pieces'; ?></label>
