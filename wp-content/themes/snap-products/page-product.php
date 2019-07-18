@@ -16,10 +16,10 @@
       <p>With a touchscreen nib and large print area,
 the Contour™ Digital Touch is ideal for any promotional requirement. The stylus can be used on both capacitve and resistive touchscreen phones and tablets. The patented barrel has been designed to exploit the full potential of the digital printing process.</p>
       <div class="product-about-icons">
-        <img src="<?php echo images; ?>/icons/360print.svg" alt="">
-        <img src="<?php echo images; ?>/icons/360print.svg" alt="">
-        <img src="<?php echo images; ?>/icons/360print.svg" alt="">
-        <img src="<?php echo images; ?>/icons/360print.svg" alt="">
+        <img src="<?php echo images; ?>/bubble/360.png" alt="">
+        <img src="<?php echo images; ?>/bubble/360.png" alt="">
+        <img src="<?php echo images; ?>/bubble/360.png" alt="">
+        <img src="<?php echo images; ?>/bubble/360.png" alt="">
       </div>
       <div class="product-scheme">
         <img src="<?php echo images; ?>/SCHEME.svg" alt="">
