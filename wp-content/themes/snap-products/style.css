@@ -873,7 +873,7 @@ footer li:first-of-type {
 }
 
 .material-checkbox > input:checked + .checkbox,
-.material-checkbox.checked + .checkbox,
+.material-checkbox.checked > .checkbox,
 .filter-checkbox.checked  + .checkbox,
 .filter-checkbox > input:checked + .checkbox {
   background-image: url('./images/icons/checkbox-checked.svg');
@@ -1605,4 +1605,8 @@ opacity: 0;
 
 .we-do > div * {
   width: 10%;
+}
+
+.delivery-checkbox.checked {
+  pointer-events: none;
 }

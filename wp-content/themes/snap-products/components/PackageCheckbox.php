@@ -1,5 +1,5 @@
 <?php function PackageCheckbox() { ?>
-    <div class="package-checkbox">
+    <div class="package-checkbox empty" onclick="checkedChanged(this)">
       <input type="checkbox">
       <div class="package-checkbox-real">
       </div>

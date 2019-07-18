@@ -20,7 +20,7 @@
 <div class="product-page-wrapper">
     <?php Sidebar('vertical'); ?>
 
-    <main class="product">
+    <main class="product" product-id="<?php echo get_the_ID(); ?>">
 
     <div class="product-title"><?php echo $product->title; ?></div>
     <img src="<?php echo images; ?>/title-break.png" alt="" class="title-break">
