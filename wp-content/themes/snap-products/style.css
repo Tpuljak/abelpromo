@@ -1525,3 +1525,70 @@ body {
 .we-do > div {
   overflow: hidden;
 }
+
+.sidebar a {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar li {
+  position: relative;
+}
+
+.sidebar span {
+  position: relative;
+  /* transform: translateY(calc(-100% - 10px));
+  height: 0;
+  margin: 5px; */
+  display: block;
+  font-size: .6vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #4D4D4D;
+  width: calc(100% - 10px);
+  text-align: center;
+  padding: 7px 0;
+  background-color: #E4E4E4;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+
+  left: 5px;
+  width: calc(100% - 10px);
+}
+
+.sidebar img {
+  display: table;
+  margin: 0 auto;
+  max-width: 90%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1250) {
+  .sidebar span {
+    padding: 0;
+  }
+}
+
+.sidebar.vertical span {
+  height: 100%;
+  transform: rotate(-90deg);
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+  background-color: transparent;
+  opacity: 1;
+}
+
+
+.sidebar.vertical ul:not(:hover) li::after {
+  content: none;
+}
+
+.sidebar.vertical ul:not(:hover) span {
+opacity: 0;
+}
