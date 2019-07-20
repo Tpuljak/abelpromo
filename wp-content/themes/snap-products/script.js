@@ -13,7 +13,7 @@ window.onload = () => {
     var cb = document.querySelector('.colour-box');
     cb.style.backgroundColor = colourDropdown.value;
     cb.style.opacity = 1;
-    
+
     colourDropdown.addEventListener('change', (e) => {
       document.querySelector('.colour-box').style.backgroundColor = e.target.value;
     })
@@ -153,4 +153,43 @@ function checkedChanged(e) {
     e.classList.remove('checked');
     e.classList.add('empty');
   }
+}
+
+function sendOrder() {
+  var productTitle = document.querySelector('.input--product-title');
+
+  productTitle = productTitle ? productTitle.value : null;
+
+  var activeColour = document.querySelector('.colour-dropdown');
+  
+  activeColour = activeColour ? activeColour.value : null;
+
+  var quantity = document.querySelector('.quantity--number');
+
+  if (quantity) quantity = quantity.innerHTML;
+
+  var materialCbxs = document.querySelectorAll('.material-checkbox');
+  var options = new Array();
+
+  materialCbxs.forEach(cb => {
+    if (!cb.classList.contains('unchecked')) {
+      options[cb.getAttribute('type')] = (cb.classList.contains('empty')) ? '0' : '1';
+    }
+  });
+
+  var delivery = document.querySelector('.delivery-checkbox.checked');
+
+  if (delivery) {
+    delivery = delivery.getAttribute('type');
+  }
+
+  var customPackage = document.querySelector('.package-checkbox');
+
+  if (customPackage && customPackage.classList.contains('checked')) {
+    customPackage = 1;
+  } else {
+    customPackage = 0;
+  }
+
+  console.log(productTitle, activeColour, quantity, options, delivery, customPackage);
 }

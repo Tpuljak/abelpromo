@@ -5,6 +5,12 @@
 
   $request_params = get_request_params();
 
+  $delivery_type = null;
+
+  if (isset($request_params['delivery'])) {
+    $delivery_type = $request_params['delivery'];
+  }
+
   if (isset($request_params['product_id'])) {
     $product_id = $request_params['product_id'];
 
@@ -15,6 +21,26 @@
     }
 
     $options = map_additional_options($product);
+
+    foreach ($options as $opt) {
+        if (isset($request_params[$opt->name]) && $request_params[$opt->name] == 1) {
+            $opt->checkbox = 'checked';
+        } 
+    }
+  }
+
+  if (isset($request_params['active_colour'])) {
+      $image_to_del = null;
+
+      foreach ($product->images as $img) {
+          if ($img->colour == "#".(string)$request_params['active_colour']) {
+              $image_to_del = $img;
+          }
+      }
+
+      if ($image_to_del != null) {
+          unset($product->images[array_search($image_to_del, $product->images)]);
+      }
   }
 ?>
 
@@ -24,11 +50,19 @@
     <main class="order-form">
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Proizvod' : 'Product'; ?></label>
-            <input type="text" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo $product->title; ?>">
+            <input type="text" class="input--product-title" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo $product->title; ?>">
         </div>
         <div class="input-field" style="position: relative">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>
             <select style="height: 74px !important;" class="colour-dropdown">
+                <?php 
+                    if (isset($request_params['active_colour'])) {
+                        ?>
+                            <option value="#<?php echo $request_params['active_colour']; ?>">#<?php echo $request_params['active_colour']; ?></option>
+
+                        <?php
+                    }
+                ?>
                 <?php
                     foreach ($product->images as $img) {
                         $colour = $img->colour
@@ -44,7 +78,7 @@
             <label><?php echo ($language == 'HR') ? 'Količina' : 'Pieces'; ?></label>
             <div class="order-stepper">
             <span onclick="decrementQuantity(<?php echo $product->quantity_choosing_step; ?>, <?php echo $product->moq; ?>)">-</span>
-            <span class="quantity--number">50</span>
+            <span class="quantity--number"><?php echo (isset($request_params['quantity'])) ? $request_params['quantity'] : '50'; ?></span>
             <span onclick="incrementQuantity(<?php echo $product->quantity_choosing_step; ?>)">+</span>
             </div>
         </div>
@@ -115,10 +149,10 @@
 
     <aside class="order-details">
         <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
-        <?php PackageCheckbox(); ?> 
-        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX'); ?>
-        <?php DeliveryCheckbox('orange', '7days'); ?>
-        <?php DeliveryCheckbox('red', 'express'); ?>
+        <?php PackageCheckbox((isset($request_params['custom_package']) && $request_params['custom_package'] == 1) ? true : false); ?> 
+        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
+        <?php DeliveryCheckbox('orange', '7days', false, ($delivery_type != null && $delivery_type == '7days') ? true : false); ?>
+        <?php DeliveryCheckbox('red', 'express', false, ($delivery_type != null && $delivery_type == 'express') ? true : false); ?>
         <div class="order-details-break">
         <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
@@ -129,12 +163,12 @@
                 }
             }
         ?>
-        <a class="contact-upload" href="#">
+        <a class="contact-upload">
         <input type="file">
             <img src="<?php echo images; ?>/icons/upload.svg" alt="">
             <span><?php echo ($language == 'HR') ? 'Učitaj sliku' : 'Upload artwork'; ?> <br/> <?php echo ($language == 'HR') ? '(opcijonalno)' : '(optional)'; ?></span>
         </a>
-        <a class="contact-send" href="#"><?php echo ($language == 'HR') ? 'Pošalji' : 'Send'; ?></a>
+        <a class="contact-send" onclick="sendOrder()"><?php echo ($language == 'HR') ? 'Pošalji' : 'Send'; ?></a>
     </aside>
 
     <?php get_footer(); ?>

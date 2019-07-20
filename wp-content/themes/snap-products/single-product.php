@@ -135,10 +135,10 @@
           </div>
         </div>
         <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
-        <?php PackageCheckbox(); ?> 
-        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX'); ?>
-        <?php DeliveryCheckbox('orange', '7days'); ?>
-        <?php DeliveryCheckbox('red', 'express'); ?>
+        <?php PackageCheckbox((isset($request_params['custom_package']) && $request_params['custom_package'] == 1) ? true : false); ?> 
+        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
+        <?php DeliveryCheckbox('orange', '7days', false, ($delivery_type != null && $delivery_type == '7days') ? true : false); ?>
+        <?php DeliveryCheckbox('red', 'express', false, ($delivery_type != null && $delivery_type == 'express') ? true : false); ?>
         <div class="order-details-break">
             <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>

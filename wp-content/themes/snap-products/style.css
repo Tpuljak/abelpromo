@@ -544,6 +544,10 @@ footer li:first-of-type {
   background-image: url('./images/icons/checkbox-checked.svg');
 }
 
+.package-checkbox.checked > input + div {
+  background-image: url('./images/icons/checkbox-checked.svg');
+}
+
 .package-checkbox-real {
   min-width: 30px;
   height: 30px;
@@ -592,7 +596,11 @@ footer li:first-of-type {
   outline: none;
 }
 
-.delivery-checkbox > input:checked + .checkbox {
+.delivery-checkbox.checked > input:checked + .checkbox {
+  background-image: url('./images/icons/checkbox-checked.svg');
+}
+
+.delivery-checkbox.checked > input + .checkbox {
   background-image: url('./images/icons/checkbox-checked.svg');
 }
 
