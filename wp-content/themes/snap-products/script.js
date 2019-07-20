@@ -169,7 +169,7 @@ function sendOrder() {
   if (quantity) quantity = quantity.innerHTML;
 
   var materialCbxs = document.querySelectorAll('.material-checkbox');
-  var options = new Array();
+  var options = {};
 
   materialCbxs.forEach(cb => {
     if (!cb.classList.contains('unchecked')) {
@@ -219,7 +219,7 @@ function sendOrder() {
 
   customer.address2 = document.querySelector('input[name="address"].address--2');
 
-  if (customer.address2 && customer.address2.value) customer.address2 = customer.address2.value;
+  if (customer.address2) customer.address2 = customer.address2.value;
 
   customer.city = document.querySelector('input[name="city"]');
 
@@ -241,5 +241,35 @@ function sendOrder() {
 
   if (customer.comment) customer.comment = customer.comment.value;
 
-  console.log(customer);
+  var postObject = new Object();
+  postObject.customerInfo = customer;
+  postObject.productTitle = productTitle;
+  postObject.productColour = activeColour;
+  postObject.quantity = quantity;
+  postObject.options = options;
+  postObject.delivery = delivery;
+  postObject.customPackage = customPackage;
+
+  console.log(postObject);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      send_order_callback(postObject, request.response);
+    }
+  }
+
+  var append = '';
+
+  if (location.pathname.includes('snap-products')) {
+    append += '/snap-products';
+  }
+
+  request.open('POST', location.origin + append + '/wp-json/api/order/send', true);
+  request.send(JSON.stringify(postObject));
+}
+
+function send_order_callback(data, response) {
+  console.log(JSON.parse(response));
 }

@@ -122,6 +122,7 @@ function load_more($params) {
 
 
 }
+
 add_action('rest_api_init', function () {
     register_rest_route( 'api', 'products/load-more', array(
         'methods'  => 'GET',
@@ -165,5 +166,58 @@ function calculate_price($product) {
     $b = $b0 + $b1 + $b2 + $b3;
 
     return $price;
+}
+
+function send_order(WP_REST_Request $request) {
+    //TODO: FIX
+    $to = "mail@mail.com";
+
+    $subject = "Upit za proizvod";
+
+    $body = json_decode($request->get_body());
+
+    $message = $body;
+    // mail($to, $subject, $message);
+
+    $message = get_mail_message_format($body);
+
+    return $message;
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route( 'api', 'order/send', array(
+        'methods'  => 'POST',
+        'callback' => 'send_order'
+    ));
+});
+
+function get_mail_message_format($body) {
+    $message = "Product: " . $body->productTitle . "\n";
+    $message .= "Product colour: " . $body->productColour . "\n";
+    $message .= "Quantity: " . $body->quantity . "\n";
+    $message .= "Delivery: " . $body->delivery . "\n";
+    $message .= "Custom packaging: " . (($body->customPackage == 0) ? 'Not required' : 'Required') . "\n";
+    
+    $options = $body->options;
+    $customer = $body->customerInfo;
+
+    $message .= "--Additional options--\n";
+
+    foreach ($options as $key => $value) {
+        $message .= ucfirst($key) . ": ";
+
+        if ($value == 1) {
+            $message .= "yes\n";
+        } else {
+            $message .= "no\n";
+        }
+    } 
+
+    $message .= "--Customer info--\n";
+    foreach ($customer as $key => $value) {
+        $message .= ucfirst($key) . ": " . $value . "\n";
+    }
+
+    return $message;
 }
 ?>
