@@ -191,5 +191,55 @@ function sendOrder() {
     customPackage = 0;
   }
 
-  console.log(productTitle, activeColour, quantity, options, delivery, customPackage);
+  var customer = new Object();
+
+  customer.name = document.querySelector('input[name="name"]');
+
+  if (customer.name) customer.name = customer.name.value;
+
+  customer.email = document.querySelector('input[name="email"]');
+
+  if (customer.email) customer.email = customer.email.value;
+
+  customer.company = document.querySelector('input[name="company"]');
+
+  if (customer.company) customer.company = customer.company.value;
+
+  customer.phone = document.querySelector('input[name="phone"]');
+
+  if (customer.phone) customer.phone = customer.phone.value;
+
+  customer.pid = document.querySelector('input[name="PID"]');
+
+  if (customer.pid) customer.pid = customer.pid.value;
+  
+  customer.address1 = document.querySelector('input[name="address"].address--1');
+
+  if (customer.address1) customer.address1 = customer.address1.value;
+
+  customer.address2 = document.querySelector('input[name="address"].address--2');
+
+  if (customer.address2 && customer.address2.value) customer.address2 = customer.address2.value;
+
+  customer.city = document.querySelector('input[name="city"]');
+
+  if (customer.city) customer.city = customer.city.value;
+
+  customer.region = document.querySelector('input[name="region"]');
+
+  if (customer.region) customer.region = customer.region.value;
+
+  customer.postalCode = document.querySelector('input[name="postal"]');
+
+  if (customer.postalCode) customer.postalCode = customer.postalCode.value;
+
+  customer.country = document.querySelector('input[name="country"]');
+
+  if (customer.country) customer.country = customer.country.value;
+
+  customer.comment = document.querySelector('textarea[name="comment"]');
+
+  if (customer.comment) customer.comment = customer.comment.value;
+
+  console.log(customer);
 }

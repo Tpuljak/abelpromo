@@ -648,7 +648,7 @@ footer li:first-of-type {
   background-color: black;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  padding: 10px;
   border-radius: 6px;
   position: absolute;
   bottom: calc(100% + 10px);

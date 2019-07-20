@@ -114,11 +114,11 @@
         </div>  
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Adresa dostave 1' : 'Address 1'; ?></label>
-            <input type="text" name="address" autocomplete="on" placeholder="Adresa">
+            <input type="text" name="address" class="address--1" autocomplete="on" placeholder="Adresa">
         </div>
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Adresa dostave 2' : 'Address 2'; ?></label>
-            <input type="text" name="address" autocomplete="on" placeholder="Adresa">
+            <input type="text" name="address" class="address--2" autocomplete="on" placeholder="Adresa">
         </div>
         <div class="input-group input-group-label-160">
             <div class="input-field">
@@ -127,7 +127,7 @@
             </div>
             <div class="input-field">
                 <label><?php echo ($language == 'HR') ? 'Županija' : 'Region'; ?></label>
-                <input type="number"  name="region" autocomplete="on" placeholder="Splitsko dalmatinska">
+                <input type="text"  name="region" autocomplete="on" placeholder="Splitsko dalmatinska">
             </div>
         </div>
         <div class="input-group input-group-label-160">
@@ -137,7 +137,7 @@
             </div>
             <div class="input-field">
                 <label><?php echo ($language == 'HR') ? 'Država' : 'Country'; ?></label>
-                <input type="number" name="coutry" autocomplete="on" placeholder="Srbija">
+                <input type="text" name="country" autocomplete="on" placeholder="Srbija">
             </div>
         </div>
         <div class="input-field input-field-extended">
