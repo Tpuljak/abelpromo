@@ -86,18 +86,21 @@
           case 'on_discount':
             $products[$post_id]->on_discount = $meta_value;
             break;
+          case 'discount_coeficient':
+            $products[$post_id]->discount_coeficient = $meta_value;
+            break;
           case 'base_print_price':
             $products[$post_id]->base_print_price = $meta_value;
             break;
           case 'product_price':
             $products[$post_id]->product_price = $meta_value;
             break;
-          case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
-            $discounted_pricing[$post_id][$meta_key] = $meta_value;
-            break;
-          case (preg_match('/pricing_.*/', $meta_key) ? true : false):
-            $pricing[$post_id][$meta_key] = $meta_value;
-            break;
+          // case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
+          //   $discounted_pricing[$post_id][$meta_key] = $meta_value;
+          //   break;
+          // case (preg_match('/pricing_.*/', $meta_key) ? true : false):
+          //   $pricing[$post_id][$meta_key] = $meta_value;
+          //   break;
           case (preg_match('/product_images_.*/', $meta_key) ? true : false):
             $images[$post_id][$meta_key] = $meta_value;
             break;
@@ -111,13 +114,13 @@
         }
     }
 
-    foreach($pricing as $post_id => $pricing_for_product) {
-      $products[$post_id]->pricing = format_pricing($pricing_for_product);
-    }
+    // foreach($pricing as $post_id => $pricing_for_product) {
+    //   $products[$post_id]->pricing = format_pricing($pricing_for_product);
+    // }
 
-    foreach($discounted_pricing as $post_id => $discounted_pricing_for_product) {
-      $products[$post_id]->discounted_pricing = format_pricing($discounted_pricing_for_product);
-    }
+    // foreach($discounted_pricing as $post_id => $discounted_pricing_for_product) {
+    //   $products[$post_id]->discounted_pricing = format_pricing($discounted_pricing_for_product);
+    // }
 
     foreach($images as $post_id => $images_for_product) {
       if (!$is_single) {

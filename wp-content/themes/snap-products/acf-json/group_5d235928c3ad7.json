@@ -282,6 +282,27 @@
             ]
         },
         {
+            "key": "field_5d347bbc6fcc6",
+            "label": "Product price",
+            "name": "product_price",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "A",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5d245e579ac71",
             "label": "Base print price",
             "name": "base_print_price",
@@ -320,6 +341,35 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5d348002792c0",
+            "label": "Discount coeficient",
+            "name": "discount_coeficient",
+            "type": "number",
+            "instructions": "The coeficient that will be applied to each price range of the product.\r\nE.g. A coeficient of 0.95 will translate to 5% off of every price range.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d235928d8d0d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         },
         {
             "key": "field_5d235928dd1f1",
@@ -866,5 +916,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1563097595
+    "modified": 1563721988
 }

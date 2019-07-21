@@ -13,6 +13,8 @@
 
   $options = map_additional_options($product);
 
+  $prices = calculate_prices($product, 'regular');
+
   // var_dump($product);
 ?>
 
@@ -92,19 +94,18 @@
 
       <div class="product-table EU">
           <div>
-            <?php 
-              foreach ($product->pricing as $price) {
-                ?>
-                <div><?php echo $price->number_of_pieces; ?></div>
-                <?php
-              }
-            ?>
+            <div>50</div>
+            <div>100</div>
+            <div>150</div>
+            <div>250</div>
+            <div>1000</div>
+            <div>1001+</div>
           </div>
           <div>
             <?php 
-              foreach ($product->pricing as $price) {
+              foreach ($prices as $price) {
                 ?>
-                <div><?php echo $price->price; ?></div>
+                <div class="price--number"><?php echo $price; ?></div>
                 <?php
               }
             ?>

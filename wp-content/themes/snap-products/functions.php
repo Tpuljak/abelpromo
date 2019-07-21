@@ -137,7 +137,9 @@ function get_request_params() {
     return $requestParams;
 }
 
-function calculate_price($product) {
+function calculate_prices($product, $delivery) {
+    $prices = array();
+
     if (!isset($product->base_print_price) || !isset($product->product_price)) {
         return NULL;
     }
@@ -165,7 +167,44 @@ function calculate_price($product) {
 
     $b = $b0 + $b1 + $b2 + $b3;
 
-    return $price;
+    $x_factors = [1.15, 1.00, 0.93, 0.85, 0.77, 0.70];
+
+    switch ($delivery) {
+        case 'regular':
+            $c = 1.00;
+            break;
+        case '7days':
+            $c = 1.30;
+            break;
+        case 'express':
+            $c = 2.00;
+            break;
+        case '48h':
+            $c = 2.50;
+            break;
+        case '24h':
+            $c = 3.00;
+            break;
+        default:
+            $c = 1.00;
+            break;
+    }
+
+    $discount_coeficient = 1;
+
+    if (isset($product->discount_coeficient) && isset($product->on_discount) && $product->on_discount == 1) {
+        $discount_coeficient = $product->discount_coeficient;
+    }
+
+    foreach ($x_factors as $x) {
+        $price = $x * ($a + $b) * $c * $discount_coeficient;
+
+        $price = round($price, 2);
+
+        array_push($prices, $price);
+    }
+
+    return $prices;
 }
 
 function send_order(WP_REST_Request $request) {
