@@ -216,9 +216,10 @@ function send_order(WP_REST_Request $request) {
     $body = json_decode($request->get_body());
 
     $message = $body;
-    // mail($to, $subject, $message);
 
     $message = get_mail_message_format($body);
+
+    mail($to, $subject, $message);
 
     return $message;
 }

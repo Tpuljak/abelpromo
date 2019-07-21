@@ -271,5 +271,5 @@ function sendOrder() {
 }
 
 function send_order_callback(data, response) {
-  console.log(JSON.parse(response));
+  console.log(response);
 }
