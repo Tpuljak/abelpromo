@@ -95,12 +95,6 @@
           case 'product_price':
             $products[$post_id]->product_price = $meta_value;
             break;
-          // case (preg_match('/discounted_pricing_.*/', $meta_key) ? true: false):
-          //   $discounted_pricing[$post_id][$meta_key] = $meta_value;
-          //   break;
-          // case (preg_match('/pricing_.*/', $meta_key) ? true : false):
-          //   $pricing[$post_id][$meta_key] = $meta_value;
-          //   break;
           case (preg_match('/product_images_.*/', $meta_key) ? true : false):
             $images[$post_id][$meta_key] = $meta_value;
             break;
@@ -113,14 +107,6 @@
           $products[$post_id]->title = $products_DTO[$i]->post_title;
         }
     }
-
-    // foreach($pricing as $post_id => $pricing_for_product) {
-    //   $products[$post_id]->pricing = format_pricing($pricing_for_product);
-    // }
-
-    // foreach($discounted_pricing as $post_id => $discounted_pricing_for_product) {
-    //   $products[$post_id]->discounted_pricing = format_pricing($discounted_pricing_for_product);
-    // }
 
     foreach($images as $post_id => $images_for_product) {
       if (!$is_single) {
@@ -136,26 +122,6 @@
     }
 
     return $products;
-  }
-
-  function format_pricing($pricing) {
-    $pricing_formatted = array();
-
-    foreach ($pricing as $key => $value) {
-      $key_exploded = explode('_', $key);
-
-      if (!$pricing_formatted[$key_exploded[1]]) {
-        $pricing_formatted[$key_exploded[1]] = new Price();
-      }
-
-      if ($key_exploded[2] == 'price') {
-        $pricing_formatted[$key_exploded[1]]->price = $value;
-      } else {
-        $pricing_formatted[$key_exploded[1]]->number_of_pieces = $value;
-      }
-    }
-
-    return $pricing_formatted;
   }
 
   function format_images($images, $post_id) {
