@@ -250,13 +250,11 @@ function sendOrder() {
   postObject.delivery = delivery;
   postObject.customPackage = customPackage;
 
-  console.log(postObject);
-
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.readyState === 4 && request.status === 200) {
-      send_order_callback(postObject, request.response);
+      sendOrderCallback(postObject, request.response);
     }
   }
 
@@ -270,6 +268,40 @@ function sendOrder() {
   request.send(JSON.stringify(postObject));
 }
 
-function send_order_callback(data, response) {
+function sendOrderCallback(data, response) {
   console.log(response);
+}
+
+function loadMore() {
+  var productsContainer = document.querySelector('.menu-grid');
+  var products = document.querySelectorAll('.menu-grid-item');
+
+  var offset = products.length;
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      loadMoreCallback(request.response);
+    }
+  }
+
+  var append = '';
+
+  if (location.pathname.includes('snap-products')) {
+    append += '/snap-products';
+  }
+
+  var filters = location.search || '';
+
+  filters = filters.substring(1);
+
+  var queryString = '?offset=' + offset + '&how-many=20&' + filters;
+
+  request.open('POST', location.origin + append + '/wp-json/api/products/load-more' + queryString, true);
+  request.send(null);
+}
+
+function loadMoreCallback (response) {
+  console.log(JSON.parse(response));
 }

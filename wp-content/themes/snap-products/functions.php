@@ -102,39 +102,46 @@ function get_url_append($urlParams) {
 }
 
 function load_more($params) {
-    $requestParams = array();
-    parse_str($_SERVER['QUERY_STRING'], $requestParams);
+    $request_params = array();
+    parse_str($_SERVER['QUERY_STRING'], $request_params);
+    
     global $language;
     $language = 'EN';
 
-    if (isset($requestParams['lang'])) {
-        $language = $requestParams['lang'];
+    if (isset($request_params['lang'])) {
+        $language = $request_params['lang'];
     }
 
-    $offset = isset($requestParams['offset']) ? $requestParams['offset'] : 0;
-    $limit = isset($requestParams['limit']) ? $requestParams['limit'] : 10;
+    $filters = [''];
 
-    $products = get_products($offset, $limit);
+    if (isset($request_params['filters'])) {
+        $filters = explode(',', $request_params['filters']);
+    }
+
+    $offset = isset($request_params['offset']) ? $request_params['offset'] : 0;
+    $limit = isset($request_params['limit']) ? $request_params['limit'] : 10;
+
+    $products = get_products($offset, $limit, $filters);
 
     if ($products == NULL) {
         return NULL;
     }
 
-
+    return $products;
 }
 
 add_action('rest_api_init', function () {
     register_rest_route( 'api', 'products/load-more', array(
-        'methods'  => 'GET',
+        'methods'  => 'POST',
         'callback' => 'load_more'
     ));
 });
 
 function get_request_params() {
-    $requestParams = array();
-    parse_str($_SERVER['QUERY_STRING'], $requestParams);
+    $request_params = array();
+    parse_str($_SERVER['QUERY_STRING'], $request_params);
 
-    return $requestParams;
+    return $request_params;
 }
 
 function calculate_prices($product, $delivery) {
