@@ -31,7 +31,9 @@
   
     <?php
         if ($products != NULL) {
-            ?> <main class="menu-grid"> <?php
+            ?> 
+            <div style="float: left; width: 50%;">
+            <main class="menu-grid"> <?php
             $condition = 0;
             foreach($chunked as $index => $prods) {
                 if ($index % 2 == 0) {
@@ -49,10 +51,16 @@
                     <?php
                 }
             }
-            ?> </main> <?php
+            ?> 
+            </main> 
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <div class="load-more" onclick="loadMore()">Load more</div>
+                <div class="spinner"></div>
+            </div>
+            </div>
+            <?php
         }
     ?>
-
     <?php
         if ($products == NULL) {
             ?> 
