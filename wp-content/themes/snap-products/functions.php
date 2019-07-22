@@ -114,9 +114,9 @@ function load_more($params) {
 
     $filters = [''];
 
-    if (isset($request_params['filters'])) {
-        $filters = explode(',', $request_params['filters']);
-    }
+    // if (isset($request_params['filters'])) {
+    //     $filters = explode(',', $request_params['filters']);
+    // }
 
     $offset = isset($request_params['offset']) ? $request_params['offset'] : 0;
     $limit = isset($request_params['limit']) ? $request_params['limit'] : 10;

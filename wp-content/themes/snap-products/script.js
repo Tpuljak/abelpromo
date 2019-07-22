@@ -18,6 +18,14 @@ window.onload = () => {
       document.querySelector('.colour-box').style.backgroundColor = e.target.value;
     })
   }
+
+  if (location.search.includes('search-focus=yes')) {
+    var searchBar = document.querySelector('.search-input');
+
+    if (searchBar) {
+      searchBar.focus();
+    }
+  }
 }
 
 function changeImageColour(e) {
@@ -296,12 +304,53 @@ function loadMore() {
 
   filters = filters.substring(1);
 
-  var queryString = '?offset=' + offset + '&how-many=20&' + filters;
+  var queryString = '?how-many=20&' + filters;
+  // queryString += '&offset=' + offset;
 
   request.open('POST', location.origin + append + '/wp-json/api/products/load-more' + queryString, true);
   request.send(null);
 }
 
 function loadMoreCallback (response) {
-  console.log(JSON.parse(response));
+  var productsResponse = JSON.parse(response);
+  var menuGrid = document.querySelector('.menu-grid')
+  var productsArray = [];
+  for (var prod in productsResponse) {
+    productsArray.push(productsResponse[prod]);
+  }
+
+  productsArray = productsArray.chunk(5);
+
+  var condition = 0;
+  productsArray.forEach((products, index) => {
+    if (index % 2 == 0) {
+      condition = 2;
+    } else {
+      condition = 0;
+    }
+
+    products.forEach((product, pIndex) => {
+      var element = '<article class="menu-grid-item ';
+      if (pIndex == condition) {
+        element += 'menu-item-big';
+      }
+
+      element += '">';
+      element += '<img src="' + product.thumbnail + '" alt="" srcset="">';
+      element += '</article>';
+
+      menuGrid.innerHTML += element;
+    })
+  });
 }
+
+Object.defineProperty(Array.prototype, 'chunk', {
+  value: function(chunkSize) {
+    var array = this;
+    return [].concat.apply([],
+      array.map(function(elem, i) {
+        return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+      })
+    );
+  }
+})

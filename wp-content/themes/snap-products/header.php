@@ -33,7 +33,7 @@
             </a>
         </div>
         <div class="nav-shortcuts">
-            <a href="#">
+            <a href="<?php echo home_url('/menu?search-focus=yes'); ?>">
                 <img src="<?php echo images; ?>/icons/nav/search.svg" alt="">
             </a>
             <a href="<?php echo home_url('/hr/'.get_url_append($urlParams)); ?>" class="<?php echo ($language == 'HR') ? 'active-language' : ''; ?>">            

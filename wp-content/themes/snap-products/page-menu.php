@@ -16,11 +16,6 @@
   if ($products != NULL) {
     $products = array_values($products);
 
-    //TODO: DELETE
-    while (count($products) < 14) {
-      $products = array_merge($products, $products);
-    }
-  
     $chunked = array_chunk($products, 5);     
   }
 ?>
@@ -43,7 +38,6 @@
                 }
 
                 foreach ($prods as $p_index => $p) {
-                    // var_dump($p);
                     ?>
                         <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>">
                             <img src="<?php echo ($p->thumbnail); ?>" alt="" srcset="">
