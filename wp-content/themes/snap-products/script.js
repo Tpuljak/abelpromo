@@ -305,3 +305,20 @@ function loadMore() {
 function loadMoreCallback (response) {
   console.log(JSON.parse(response));
 }
+
+function uploadFile() {
+  document.querySelector('.file-input').click();
+}
+
+function uploadFileOnChange(e) {
+  if(e.value.length === 0) {
+    e.classList.add('empty')
+  } else {
+    e.classList.remove('empty')
+  }
+}
+
+function clearFiles() {
+  document.querySelector('.file-input').value = "";
+  document.querySelector('.file-input').classList.add('empty')
+}

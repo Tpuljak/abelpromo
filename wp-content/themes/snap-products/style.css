@@ -1644,3 +1644,29 @@ opacity: 0;
     transform: rotate(360deg);
   }
 }
+
+.file-input {
+  margin-bottom: 18px;
+}
+
+.file-input.empty {
+  display: none;
+}
+
+.file-input.empty + div {
+  display: none;
+}
+
+.file-input-wrapper > div {
+  font-size: 10px;
+  cursor: pointer;
+  display: inline-block;
+  width: 10px;
+  margin-left: -10px;
+
+}
+
+.file-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
