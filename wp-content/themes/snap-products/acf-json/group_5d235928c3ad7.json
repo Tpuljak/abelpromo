@@ -219,69 +219,6 @@
             ]
         },
         {
-            "key": "field_5d235928d4060",
-            "label": "Pricing",
-            "name": "pricing",
-            "type": "repeater",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_5cf8206a61afb",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add row",
-            "sub_fields": [
-                {
-                    "key": "field_5d235928d508a",
-                    "label": "Number of pieces",
-                    "name": "number_of_pieces",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 1,
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5d235928d5097",
-                    "label": "Price (EUR)",
-                    "name": "price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                }
-            ]
-        },
-        {
             "key": "field_5d347bbc6fcc6",
             "label": "Product price",
             "name": "product_price",
@@ -370,77 +307,6 @@
             "min": "",
             "max": "",
             "step": ""
-        },
-        {
-            "key": "field_5d235928dd1f1",
-            "label": "Discounted pricing",
-            "name": "discounted_pricing",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5d0232aabf64f",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add row",
-            "sub_fields": [
-                {
-                    "key": "field_5d235928de641",
-                    "label": "Number of pieces",
-                    "name": "number_of_pieces",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 1,
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5d235928de662",
-                    "label": "Price (EUR)",
-                    "name": "price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                }
-            ]
         },
         {
             "key": "field_5d235928e1dcf",
@@ -916,5 +782,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1563721988
+    "modified": 1563787800
 }
