@@ -219,6 +219,33 @@
             ]
         },
         {
+            "key": "field_5d3b07782de54",
+            "label": "Product icon gallery",
+            "name": "product_icon_gallery",
+            "type": "gallery",
+            "instructions": "A maximum of 4 icons can be added. Max upload size is 200x200.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": 4,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": 200,
+            "max_height": 200,
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5d347bbc6fcc6",
             "label": "Product price",
             "name": "product_price",
@@ -782,5 +809,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1563787800
+    "modified": 1564150003
 }

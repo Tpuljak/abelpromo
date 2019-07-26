@@ -29,10 +29,16 @@
     <div class="product-about <?php echo $product->image_type; ?>">
       <p><?php echo $product->description; ?></p>
       <div class="product-about-icons">
-      <img src="<?php echo images; ?>/bubble/360.png" alt="">
-        <img src="<?php echo images; ?>/bubble/360.png" alt="">
-        <img src="<?php echo images; ?>/bubble/360.png" alt="">
-        <img src="<?php echo images; ?>/bubble/360.png" alt="">
+      <?php 
+
+        $images = get_field('product_icon_gallery', get_the_ID());
+        if( $images ) { 
+          foreach ($images as $img) {
+            ?> <img src="<?php echo ($img['url']); ?>" alt="" srcset=""> <?php
+          }
+      ?>              
+      <?php } ?>
+
       </div>
       <div class="product-scheme">
         <img src="<?php echo $product->line_drawing; ?>" alt="">
