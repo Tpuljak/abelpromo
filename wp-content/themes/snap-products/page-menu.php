@@ -14,7 +14,7 @@
   if (isset($request_params['search'])) {
     $filters['search'] = $request_params['search'];
   }
-  
+
   $products = get_products($offset = 0, $how_many = 20, $filters);
 
   if ($products != NULL) {
@@ -76,7 +76,7 @@
 
     <aside class="order-details">
         <?php Search(); ?>
-        <?php FilterCheckbox('A - Z', 'all'); ?>
+        <?php FilterCheckbox('A - Z', 'all', in_array('all', $filters)); ?>
         <?php FilterCheckbox('Discounted', 'discounted', in_array('discounted', $filters)); ?>
         <?php FilterCheckbox('Featured', 'featured', in_array('featured', $filters)); ?>
         <?php FilterCheckbox('New products', 'new', in_array('new', $filters)); ?>
