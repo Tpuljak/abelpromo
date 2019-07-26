@@ -136,12 +136,12 @@
           </div>
         </div>
         <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
-        <?php PackageCheckbox((isset($request_params['custom_package']) && $request_params['custom_package'] == 1) ? true : false); ?> 
-        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
-        <?php DeliveryCheckbox('orange', '7days', false, ($delivery_type != null && $delivery_type == '7days') ? true : false); ?>
-        <?php DeliveryCheckbox('red', 'express', false, ($delivery_type != null && $delivery_type == 'express') ? true : false); ?>
-        <?php DeliveryCheckbox('darkred', '2days', false, ($delivery_type != null && $delivery_type == '2days') ? true : false); ?>
-        <?php DeliveryCheckbox('purple', '1day', false, ($delivery_type != null && $delivery_type == '1day') ? true : false); ?>
+        <?php PackageCheckbox(false); ?> 
+        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', true); ?>
+        <?php DeliveryCheckbox('orange', '7days', false, false); ?>
+        <?php DeliveryCheckbox('red', 'express', false, false); ?>
+        <?php DeliveryCheckbox('darkred', '2days', false, false); ?>
+        <?php DeliveryCheckbox('purple', '1day', false, false); ?>
         <div class="order-details-break">
             <img src="<?php echo images; ?>/title-break.png" alt="">
         </div>
