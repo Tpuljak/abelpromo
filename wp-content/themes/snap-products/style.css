@@ -1090,6 +1090,10 @@ footer li:first-of-type {
   font-weight: 900;
 }
 
+.quantity-select:first-child, .quantity-select:last-child {
+  cursor: pointer;
+}
+
 .quantity-select > span:nth-child(2) {
   font-size: 60px;
   color: rgb(77, 77, 77);
