@@ -111,7 +111,7 @@
             <?php 
               foreach ($prices as $price) {
                 ?>
-                <div class="price--number"><?php echo $price; ?></div>
+                <div class="price--number" original-price="<?php echo $price; ?>"><?php echo $price; ?></div>
                 <?php
               }
             ?>

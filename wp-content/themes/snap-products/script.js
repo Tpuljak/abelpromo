@@ -165,6 +165,8 @@ function checkedChanged(e) {
         db.classList.add('empty');
       }
     })
+
+    updatePrices(e);
   }
   if (e.classList.contains('empty')) {
     e.classList.remove('empty');
@@ -172,6 +174,42 @@ function checkedChanged(e) {
   } else {
     e.classList.remove('checked');
     e.classList.add('empty');
+  }
+}
+
+function updatePrices(e) {
+  var deliveryType = e.getAttribute('type');
+
+  var coefficient = 1.0;
+
+  switch(deliveryType) {
+    case '7days':
+      coefficient = 1.3;
+      break;
+    case 'express':
+      coefficient = 2.0;
+      break;
+    case '2days':
+      coefficient = 2.5;
+      break;
+    case '1day':
+      coefficient = 3.0;
+      break;
+    default:
+      coefficient = 1.0;
+      break;
+  }
+
+  var priceNumbers = document.querySelectorAll('.price--number');
+
+  if (priceNumbers) {
+    var originalPrice = 1;
+
+    priceNumbers.forEach(num => {
+      originalPrice = parseFloat(num.getAttribute('original-price'));
+
+      num.innerHTML = (originalPrice * coefficient).toFixed(2);
+    });
   }
 }
 
