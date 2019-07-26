@@ -69,6 +69,12 @@
         $products_query .= " AND post_meta.meta_value = 1";
       }
 
+      if (isset($filters['search'])) {
+        $search_term = $filters['search'];
+
+        $products_query .= " AND p.post_title LIKE '%{$search_term}%'";
+      }
+
       if (in_array('new_products', $filters)) {
         $products_query .= " ORDER BY p.post_date DESC";
       } else {
@@ -76,9 +82,10 @@
       }
 
       $products_query .= " LIMIT {$offset}, {$how_many}";
+
+      
     }
 
-    // var_dump($products_query);
     return get_products_meta($products_query);
   }
 ?>

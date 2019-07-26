@@ -11,6 +11,10 @@
     $filters = explode(',', $request_params['filters']);
   }
   
+  if (isset($request_params['search'])) {
+    $filters['search'] = $request_params['search'];
+  }
+  
   $products = get_products($offset = 0, $how_many = 20, $filters);
 
   if ($products != NULL) {
