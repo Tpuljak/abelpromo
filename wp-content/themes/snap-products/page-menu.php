@@ -43,7 +43,7 @@
 
                 foreach ($prods as $p_index => $p) {
                     ?>
-                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>" onclick="redirectTo('<?php echo $p->url; ?>')">
+                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>" onclick="redirectTo(this, '<?php echo $p->url; ?>')">
                             <img src="<?php echo ($p->thumbnail); ?>" alt="" srcset="">
                         </article>
                     <?php

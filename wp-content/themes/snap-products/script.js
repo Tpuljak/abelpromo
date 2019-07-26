@@ -405,8 +405,16 @@ function clearFiles() {
   document.querySelector('.file-input').classList.add('empty')
 }
 
-function redirectTo(to) {
-  window.location.href = to;
+function redirectTo(e, to) {
+  if (e.classList.contains('checked')) {
+    e.classList.remove('checked');
+    var queryString = new URLSearchParams(window.location.search);
+    queryString.delete('filters');
+
+    window.location.href = window.location.origin + window.location.pathname + queryString.toString();
+  } else {
+    window.location.href = to;
+  }
 }
 
 function searchProducts() {

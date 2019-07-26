@@ -832,6 +832,7 @@ footer li:first-of-type {
 
 .material-checkbox > input,
 .filter-checkbox > input {
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
