@@ -26,6 +26,19 @@ window.onload = () => {
       searchBar.focus();
     }
   }
+
+  if (window.location.search.includes('search')) {
+    document.querySelector('.search-input').value = (new URLSearchParams(window.location.search)).get('search');
+  }
+
+  var searchInput = document.querySelector('.search-input');
+
+  searchInput.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      searchProducts();
+    }
+  });
 }
 
 function changeImageColour(e) {
@@ -141,7 +154,6 @@ function redirectToOrder() {
   queryString += '&quantity=' + quantity;
   queryString += '&active_colour=' + activeColour;
 
-  // console.log(queryString);
   window.location.href = origin + '/order' + queryString;
 }
 
@@ -277,7 +289,7 @@ function sendOrder() {
 }
 
 function sendOrderCallback(data, response) {
-  console.log(response);
+  console.log("Order sent");
 }
 
 function loadMore() {
@@ -395,4 +407,17 @@ function clearFiles() {
 
 function redirectTo(to) {
   window.location.href = to;
+}
+
+function searchProducts() {
+  var searchInput = document.querySelector('.search-input');
+
+  searchInput = searchInput.value.replace(/\s+/g, '_');
+
+  var params = new URLSearchParams(window.location.search);
+
+  params.delete('search');
+  params.append('search', searchInput);
+
+  window.location.search = params;
 }
