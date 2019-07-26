@@ -39,7 +39,7 @@
 
                 foreach ($prods as $p_index => $p) {
                     ?>
-                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>">
+                        <article class="menu-grid-item <?php echo ($p_index == $condition) ? 'menu-item-big' : ''; ?>" onclick="redirectTo('<?php echo $p->url; ?>')">
                             <img src="<?php echo ($p->thumbnail); ?>" alt="" srcset="">
                         </article>
                     <?php
@@ -48,8 +48,9 @@
             ?> 
             </main> 
             <div style="display: flex; justify-content: center; width: 100%;">
-                <div class="load-more" onclick="loadMore()">Load more</div>
+                <div class="load-more" onclick="loadMore()"><?php echo ($language == 'HR') ? 'Učitaj više' : 'Load more'; ?></div>
                 <div class="spinner"></div>
+                <div class="no-more-products load-more" style="display: none;"><?php echo ($language == 'HR') ? 'Ne postoji više proizvoda u ovoj kategoriji' : 'No more produts in this category'; ?></div>
             </div>
             </div>
             <?php

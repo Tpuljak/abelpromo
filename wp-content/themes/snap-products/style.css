@@ -903,6 +903,7 @@ footer li:first-of-type {
 }
 
 .menu-grid-item {
+  cursor: pointer;
   background-color: #BCBCBC;
   padding-top: 100%;
   position: relative;

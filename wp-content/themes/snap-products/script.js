@@ -281,6 +281,12 @@ function sendOrderCallback(data, response) {
 }
 
 function loadMore() {
+  var spinner = document.querySelector('.spinner');
+  var loadMoreButton = document.querySelector('.load-more');
+
+  loadMoreButton.style.display = 'none';
+  spinner.style.display = 'block';
+
   var productsContainer = document.querySelector('.menu-grid');
   var products = document.querySelectorAll('.menu-grid-item');
 
@@ -305,7 +311,7 @@ function loadMore() {
   filters = filters.substring(1);
 
   var queryString = '?how-many=20&' + filters;
-  // queryString += '&offset=' + offset;
+  queryString += '&offset=' + offset;
 
   request.open('POST', location.origin + append + '/wp-json/api/products/load-more' + queryString, true);
   request.send(null);
@@ -342,6 +348,21 @@ function loadMoreCallback (response) {
       menuGrid.innerHTML += element;
     })
   });
+
+
+  var spinner = document.querySelector('.spinner');
+  var loadMoreButton = document.querySelector('.load-more');
+  var noMoreProductsButton = document.querySelector('.no-more-products');
+
+  if (productsResponse == null) {
+    noMoreProductsButton.style.display = 'block';
+    spinner.style.display = 'none';
+    loadMoreButton.style.display = 'none';
+  } else {
+    spinner.style.display = 'none';
+    noMoreProductsButton.style.display = 'none';
+    loadMoreButton.style.display = 'block';
+  }
 }
 
 Object.defineProperty(Array.prototype, 'chunk', {
@@ -370,4 +391,8 @@ function uploadFileOnChange(e) {
 function clearFiles() {
   document.querySelector('.file-input').value = "";
   document.querySelector('.file-input').classList.add('empty')
+}
+
+function redirectTo(to) {
+  window.location.href = to;
 }
