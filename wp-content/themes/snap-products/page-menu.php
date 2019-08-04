@@ -76,12 +76,12 @@
 
     <aside class="order-details">
         <?php Search(); ?>
-        <?php FilterCheckbox('A - Z', 'all', in_array('all', $filters)); ?>
-        <?php FilterCheckbox('Discounted', 'discounted', in_array('discounted', $filters)); ?>
-        <?php FilterCheckbox('Featured', 'featured', in_array('featured', $filters)); ?>
-        <?php FilterCheckbox('New products', 'new', in_array('new', $filters)); ?>
-        <?php FilterCheckbox('Lowest price', 'lowest', in_array('lowest', $filters)); ?>
-        <?php FilterCheckbox('Highest price', 'highest', in_array('highest', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'A - Ž' : 'A - Z', 'all', in_array('all', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'Sniženo' : 'Discounted', 'discounted', in_array('discounted', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'Istaknuto' : 'Featured', 'featured', in_array('featured', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'Novo' : 'New products', 'new', in_array('new', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'Najniža cijena' : 'Lowest price', 'lowest', in_array('lowest', $filters)); ?>
+        <?php FilterCheckbox(($language == 'HR') ? 'Najviša cijena' : 'Highest price', 'highest', in_array('highest', $filters)); ?>
     </aside>
 
     <?php get_footer(); ?>
