@@ -33,12 +33,14 @@ window.onload = () => {
 
   var searchInput = document.querySelector('.search-input');
 
-  searchInput.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      searchProducts();
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        searchProducts();
+      }
+    });
+  } 
 }
 
 function changeImageColour(e) {
@@ -308,6 +310,12 @@ function sendOrder() {
   postObject.delivery = delivery;
   postObject.customPackage = customPackage;
 
+  var filesInput = document.querySelector('.file-input-wrapper > [type="file"]');
+
+  if (filesInput && filesInput.files) {
+    postObject.files = filesInput.files;
+  }
+
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
@@ -321,6 +329,8 @@ function sendOrder() {
   if (location.pathname.includes('snap-products')) {
     append += '/snap-products';
   }
+
+  console.log(postObject);
 
   request.open('POST', location.origin + append + '/wp-json/api/order/send', true);
   request.send(JSON.stringify(postObject));
