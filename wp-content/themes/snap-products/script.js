@@ -312,9 +312,9 @@ function sendOrder() {
 
   var filesInput = document.querySelector('.file-input-wrapper > [type="file"]');
 
-  if (filesInput && filesInput.files) {
-    postObject.files = filesInput.files;
-  }
+  // if (filesInput && filesInput.files) {
+  //   postObject.files = filesInput.files;
+  // }
 
   var request = new XMLHttpRequest();
 
@@ -330,13 +330,20 @@ function sendOrder() {
     append += '/snap-products';
   }
 
-  console.log(postObject);
+  var formData = new FormData();
+
+  for (var i = 0; i < filesInput.files.length; i++) {
+    formData.append('files[]', filesInput.files[i]);
+  }
+
+  formData.append('customer', JSON.stringify(postObject));
 
   request.open('POST', location.origin + append + '/wp-json/api/order/send', true);
-  request.send(JSON.stringify(postObject));
+  request.send(formData);
 }
 
 function sendOrderCallback(data, response) {
+  console.log(JSON.parse(response));
   console.log("Order sent");
 }
 

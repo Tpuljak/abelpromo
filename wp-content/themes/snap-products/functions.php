@@ -4,6 +4,13 @@ include(get_template_directory() . '/products/helpers.php');
 include(get_template_directory() . '/products/queries/get-products-query.php');
 include(get_template_directory() . '/products/queries/get-single-product.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require get_template_directory() . '/vendor/PHPMailer/src/Exception.php';
+require get_template_directory() . '/vendor/PHPMailer/src/PHPMailer.php';
+require get_template_directory() . '/vendor/PHPMailer/src/SMTP.php';
+
 if (function_exists('add_theme_support')) {
     load_theme_textdomain('snap-products');
 }
@@ -216,19 +223,33 @@ function calculate_prices($product, $delivery) {
 
 function send_order(WP_REST_Request $request) {
     //TODO: FIX
-    $to = "mail@mail.com";
+    $to = 'toma.puljak@hotmail.com';
+    $subject = 'Upit za proizvod';
 
-    $subject = "Upit za proizvod";
+    $customer_info = json_decode($request->get_param('customer'));
+    $files = $request->get_file_params();
 
-    $body = json_decode($request->get_body());
+    if (isset($files['files'])) {
+        $files = $files['files'];
+    }
 
-    $message = $body;
+    $message = get_mail_message_format($customer_info);
 
-    $message = get_mail_message_format($body);
+    $email = new PHPMailer();
+    $email->SetFrom('snap@products.com');
+    $email->Subject = $subject;
+    $email->Body = $message;
+    $email->AddAddress($to);
 
-    mail($to, $subject, $message);
+    for ($i = 0; $i < count($files['name']); $i++) {
+        $path = $files['tmp_name'][$i];
+        $name = $files['name'][$i];
 
-    return $message;
+        $email->AddAttachment($path, $name);
+    }
+
+    // return $message;
+    return $email->Send();
 }
 
 add_action('rest_api_init', function () {
@@ -238,15 +259,15 @@ add_action('rest_api_init', function () {
     ));
 });
 
-function get_mail_message_format($body) {
-    $message = "Product: " . $body->productTitle . "\n";
-    $message .= "Product colour: " . $body->productColour . "\n";
-    $message .= "Quantity: " . $body->quantity . "\n";
-    $message .= "Delivery: " . $body->delivery . "\n";
-    $message .= "Custom packaging: " . (($body->customPackage == 0) ? 'Not required' : 'Required') . "\n";
+function get_mail_message_format($customer_info) {
+    $message = "Product: " . $customer_info->productTitle . "\n";
+    $message .= "Product colour: " . $customer_info->productColour . "\n";
+    $message .= "Quantity: " . $customer_info->quantity . "\n";
+    $message .= "Delivery: " . $customer_info->delivery . "\n";
+    $message .= "Custom packaging: " . (($customer_info->customPackage == 0) ? 'Not required' : 'Required') . "\n";
     
-    $options = $body->options;
-    $customer = $body->customerInfo;
+    $options = $customer_info->options;
+    $customer = $customer_info->customerInfo;
 
     $message .= "--Additional options--\n";
 
