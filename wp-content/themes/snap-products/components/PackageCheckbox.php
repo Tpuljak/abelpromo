@@ -13,4 +13,4 @@
       <img src="<?php echo images; ?>/icons/delivery/box.svg" alt="" class="package">
       <?php Info($info[$language]); ?>
     </div>
-<?php } ?> 
+<?php }

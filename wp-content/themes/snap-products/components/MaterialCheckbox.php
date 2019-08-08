@@ -8,4 +8,4 @@
       <?php Info($info); ?>
     <?php } ?>
   </div>
-<?php } ?> 
+<?php }

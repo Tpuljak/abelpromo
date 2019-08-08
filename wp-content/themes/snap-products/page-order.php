@@ -50,7 +50,7 @@
     <main class="order-form">
         <div class="input-field">
             <label><?php echo ($language == 'HR') ? 'Proizvod' : 'Product'; ?></label>
-            <input type="text" class="input--product-title" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo $product->title; ?>">
+            <input type="text" class="input--product-title" name="product" autocomplete="on" placeholder="<?php echo ($language == 'HR') ? 'Ime proizvoda' : 'Product name';?>" value="<?php echo isset($product->title) ? $product->title : ''; ?>">
         </div>
         <div class="input-field" style="position: relative">
             <label><?php echo ($language == 'HR') ? 'Boja p.' : 'P. color'; ?></label>

@@ -12,16 +12,21 @@
             <li><a href="#">Order history</a></li>
           </ul>
           <ul>
-            <li><a href="#">My account</a></li>
-            <li><a href="#">Personal information</a></li>
-            <li><a href="#">Addresses</a></li>
-            <li><a href="#">Order history</a></li>
+            <li><a href="#">Information</a></li>
+            <li><a href="#">Snap Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Delivery explained</a></li>
+            <li><a href="#">Full Colour Printing</a></li>
+            <li><a href="#">Artwork Services</a></li>
+            <li><a href="#">Site Map</a></li>
           </ul>
           <ul>
-            <li><a href="#">My account</a></li>
-            <li><a href="#">Personal information</a></li>
-            <li><a href="#">Addresses</a></li>
-            <li><a href="#">Order history</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Corporate & Social Responsibility</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Credit Application Form</a></li>
           </ul>
           <ul class="no-list-style">
             <li><a href="#"><?php echo ($language == 'HR') ? 'Kontakt' : 'Contact information'; ?></a></li>

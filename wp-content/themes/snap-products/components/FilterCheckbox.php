@@ -4,4 +4,4 @@
         <div class="checkbox"></div>
         <?php echo $string; ?>
     </div>
-<?php } ?> 
+<?php }

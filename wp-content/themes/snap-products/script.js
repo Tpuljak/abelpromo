@@ -343,8 +343,9 @@ function sendOrder() {
 }
 
 function sendOrderCallback(data, response) {
-  console.log(JSON.parse(response));
-  console.log("Order sent");
+  if (response) {
+    window.location.href = window.location.origin;
+  }
 }
 
 function loadMore() {

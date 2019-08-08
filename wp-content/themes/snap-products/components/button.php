@@ -7,5 +7,3 @@ function Button($text) {
         </button>
     <?php
 }
-
-?>

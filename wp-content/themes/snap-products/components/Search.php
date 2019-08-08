@@ -7,4 +7,4 @@
             <img style="max-width: 60%" src="<?php echo images; ?>/icons/search-icon.svg" />
         </div>
     </div>
-<?php } ?>
+<?php }

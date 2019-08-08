@@ -1,4 +1,3 @@
-
 <?php function Sidebar($type='horizontal') { ?>
   <?php 
   global $language;
@@ -49,4 +48,4 @@
       </li>
     </ul>
   </aside>
-<?php } ?>
+<?php }

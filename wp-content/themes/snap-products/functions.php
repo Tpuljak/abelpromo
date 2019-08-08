@@ -239,6 +239,7 @@ function send_order(WP_REST_Request $request) {
     $email->SetFrom('snap@products.com');
     $email->Subject = $subject;
     $email->Body = $message;
+    $email->IsHTML(true);
     $email->AddAddress($to);
 
     for ($i = 0; $i < count($files['name']); $i++) {
@@ -260,30 +261,30 @@ add_action('rest_api_init', function () {
 });
 
 function get_mail_message_format($customer_info) {
-    $message = "Product: " . $customer_info->productTitle . "\n";
-    $message .= "Product colour: " . $customer_info->productColour . "\n";
-    $message .= "Quantity: " . $customer_info->quantity . "\n";
-    $message .= "Delivery: " . $customer_info->delivery . "\n";
-    $message .= "Custom packaging: " . (($customer_info->customPackage == 0) ? 'Not required' : 'Required') . "\n";
+    $message = "<b>Product:</b> " . $customer_info->productTitle . "<br>";
+    $message .= "<b>Product colour:</b> " . $customer_info->productColour . "<br>";
+    $message .= "<b>Quantity:</b> " . $customer_info->quantity . "<br>";
+    $message .= "<b>Delivery:</b> " . $customer_info->delivery . "<br>";
+    $message .= "<b>Custom packaging:</b> " . (($customer_info->customPackage == 0) ? 'Not required' : 'Required') . "<br>";
     
     $options = $customer_info->options;
     $customer = $customer_info->customerInfo;
 
-    $message .= "--Additional options--\n";
+    $message .= "<b>--Additional options--</b><br>";
 
     foreach ($options as $key => $value) {
-        $message .= ucfirst($key) . ": ";
+        $message .= "<b>" . ucfirst($key) . "</b>" . ": ";
 
         if ($value == 1) {
-            $message .= "yes\n";
+            $message .= "yes<br>";
         } else {
-            $message .= "no\n";
+            $message .= "no<br>";
         }
     } 
 
-    $message .= "--Customer info--\n";
+    $message .= "<b>--Customer info--</b><br>";
     foreach ($customer as $key => $value) {
-        $message .= ucfirst($key) . ": " . $value . "\n";
+        $message .= ucfirst($key) . ": " . $value . "<br>";
     }
 
     return $message;
