@@ -3,7 +3,7 @@
 
   update_language();
 ?>
-      <footer>
+      <!-- <footer>
         <div>
           <ul>
             <li><a href="#">My account</a></li>
@@ -36,7 +36,7 @@
             <li><a href="#">Aldershot, Hampshire GU12 4SJ</a></li>
           </ul>
         </div>  
-      </footer>
+      </footer> -->
     <?php wp_footer(); ?>
   </body>
 </html>

@@ -63,7 +63,7 @@
   <section class="bottom-hero">
     <h1>Take another step!<span>Promote your self</span></h1>
     <div>
-    <a href="#">Email us</a>
+    <a href=" mailto:info@abelpromo.com">Email us</a>
     <a href="#">Find us</a>
     </div>
   </section>

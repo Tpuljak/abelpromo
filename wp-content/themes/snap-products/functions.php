@@ -222,8 +222,7 @@ function calculate_prices($product, $delivery) {
 }
 
 function send_order(WP_REST_Request $request) {
-    //TODO: FIX
-    $to = 'toma.puljak@hotmail.com';
+    $to = 'sales@abelpromo.com';
     $subject = 'Upit za proizvod';
 
     $customer_info = json_decode($request->get_param('customer'));

@@ -27,7 +27,7 @@
                 <img src="<?php echo images; ?>/icons/nav/list.svg" alt="">
                 <?php echo ($language == 'HR') ? 'Katalog' : 'Catalog'; ?>
             </a>
-            <a href="#">
+            <a href="mailto:info@abelpromo.com">
                 <img src="<?php echo images; ?>/icons/nav/contact.svg" alt="">
                 <?php echo ($language == 'HR') ? 'Kontaktiraj nas' : 'Contact us'; ?>
             </a>
