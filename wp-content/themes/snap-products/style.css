@@ -267,7 +267,7 @@ footer li:first-of-type {
   flex: 1;
   width: calc(20% - 20px);
   background-color: #F0F0F0;
-  padding: 30px;
+  padding: 20px;
   height: 480px;
   float: left;
   display: flex;
@@ -1716,4 +1716,10 @@ opacity: 0;
 .branding-options > h2 {
   font-family: 'Signatra' !important;
   font-weight: 400;
+}
+
+.branding-options > div > article > h3 {
+  font-family: 'Signatra' !important;
+  font-weight: 400;
+  font-size: 35px;
 }
