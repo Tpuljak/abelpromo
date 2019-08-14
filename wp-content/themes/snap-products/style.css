@@ -1678,3 +1678,42 @@ opacity: 0;
   display: flex;
   justify-content: space-between;
 }
+
+.we-do img:not(.arrow) {
+  object-fit: contain;
+}
+
+.slider img  {
+  height: auto;
+}
+
+.order-details {
+  max-width: 495px;
+}
+
+.product {
+  max-width: 990px;
+}
+
+.delivery-checkbox .time {
+  height: 35px;
+  max-width: 80%;
+  object-fit: contain;
+}
+
+.we-do {
+  max-width: 1980px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'Signatra';
+    font-style: normal;
+    font-weight: normal;
+  src: url('./fonts/signatra/Signatra.ttf') format('truetype');
+}
+
+.branding-options > h2 {
+  font-family: 'Signatra' !important;
+  font-weight: 400;
+}

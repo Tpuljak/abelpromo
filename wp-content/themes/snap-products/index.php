@@ -35,12 +35,12 @@
       <article>
         <h3>Print & Cut</h3>
         <p>High-speed solvent printer cutter devices go beyond extraordinary to deliver a wide range of applications. Precision cutting capability gives you the ability to deliver custom and short-run items such as labels, T-shirt transfers, signage, displays banners, posters, exhibition graphics window clings and more...</p>
-        <img src="<?php echo images . '/icons/screw@2x.png'; ?>" alt="">
+        <img src="<?php echo images . '/icons/pvc@2x.png'; ?>" alt="">
       </article>
       <article>
         <h3>Engraving</h3>
         <p>Engraving is traditionally used to brand metal substrates and offerrs a higher perceived value than full colour digital printing. Concentrated energy is supplied via a metal rod in the form drill or a mill which removes the surface material to reveal the base metal.</p>
-        <img src="<?php echo images . '/icons/pvc@2x.png'; ?>" alt="">
+        <img src="<?php echo images . '/icons/screw@2x.png'; ?>" alt="">
       </article>
       <article>
         <h3>Embroidery</h3>
