@@ -6,4 +6,4 @@ function Button($text) {
             <?php echo $text; ?>
         </button>
     <?php
-}
+} ?>
