@@ -20,8 +20,9 @@
 
     <nav class="nav">
         <div class="nav-container">
-            <a href="<?php echo home_url(); ?>">
+            <a href="<?php echo home_url($language == 'HR' ? '/hr' : ''); ?>">
                 <img src="<?php echo images; ?>/icons/nav/email.svg" alt="">
+                <?php echo ($language == 'HR') ? 'Početna' : 'Home'; ?>
             </a>
             <a href="http://static.fliphtml5.com/web/demo/HM/index.html#p=4" target="blank">
                 <img src="<?php echo images; ?>/icons/nav/list.svg" alt="">
