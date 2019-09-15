@@ -1723,7 +1723,3 @@ opacity: 0;
   font-weight: 400;
   font-size: 35px;
 }
-
-[product-id="33"] .product-image > img {
-  transform: rotate(45deg);
-}
