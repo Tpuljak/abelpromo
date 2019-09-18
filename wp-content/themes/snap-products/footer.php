@@ -26,12 +26,12 @@
           </ul>
           <div style="display: flex; justify-content: flex-start; flex-direction: column;">
             <div>
-              <a href="#"><img src="<?php echo images; ?>/social/fejs.svg" style="width: 40px; margin: 3px;"/></a>
-              <a href="#"><img src="<?php echo images; ?>/social/instagram.svg" style="width: 40px; margin: 3px;"/></a>
+              <a href="https://www.facebook.com/Abel-Promo-2331781420236824/"><img src="<?php echo images; ?>/social/fejs.svg" style="width: 40px; margin: 3px;"/></a>
+              <a href="https://www.instagram.com/Abel_Promo/"><img src="<?php echo images; ?>/social/instagram.svg" style="width: 40px; margin: 3px;"/></a>
             </div>
             <div>
-              <a href="#"><img src="<?php echo images; ?>/social/tviter.svg" style="width: 40px; margin: 3px;"/></a>
-              <a href="#"><img src="<?php echo images; ?>/social/linkedin.svg" style="width: 40px; margin: 3px;"/></a>
+              <a href="https://twitter.com/Abel_Promo"><img src="<?php echo images; ?>/social/tviter.svg" style="width: 40px; margin: 3px;"/></a>
+              <a href="https://www.linkedin.com/in/abel-promo-677b24189/"><img src="<?php echo images; ?>/social/linkedin.svg" style="width: 40px; margin: 3px;"/></a>
             </div>
           </div>
         </div>  
