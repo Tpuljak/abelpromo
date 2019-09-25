@@ -1022,6 +1022,11 @@ footer li:first-of-type {
   margin-left: 7px;
 }
 
+.product-table.HR > div:last-child > div::after {
+  content: 'kn';
+  margin-left: 7px;
+}
+
 .product-table.KN > div:last-child > div::after {
   content: 'kn';
   margin-left: 7px;

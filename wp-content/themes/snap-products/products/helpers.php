@@ -125,6 +125,8 @@
   }
 
   function format_images($images, $post_id) {
+    global $language;
+    
     $images_formatted = array();
 
     foreach ($images as $key => $value) {
@@ -137,7 +139,8 @@
       if ($key_exploded[3] == 'image') {
         $images_formatted[$key_exploded[2]]->image = get_field($key, $post_id);
       } else {
-        $images_formatted[$key_exploded[2]]->colour = $value;
+        if (preg_match(($language == 'HR') ? '/name_hr$/' : '/name$/', $key)) $images_formatted[$key_exploded[2]]->colour_name = $value;
+        if (preg_match('/colour$/', $key)) $images_formatted[$key_exploded[2]]->colour = $value;
       }
     }
 

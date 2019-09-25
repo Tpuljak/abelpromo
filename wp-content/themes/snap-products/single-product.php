@@ -98,7 +98,7 @@
       <span><?php echo ($language == 'HR') ? 'CIJENE' : 'PRICING'; ?></span>
     </div>
 
-      <div class="product-table EU">
+      <div class="product-table HR">
           <div>
             <div>50</div>
             <div>100</div>
@@ -127,7 +127,7 @@
             <?php 
               foreach ($product->images as $img) {
                 ?>
-                  <div style="background-color: <?php echo $img->colour; ?>" class="colour-switch"></div>
+                  <div style="background-color: <?php echo $img->colour; ?>" class="colour-switch" colour-name="<?php echo $img->colour_name; ?>"></div>
                 <?php
               }
             ?>
@@ -141,8 +141,6 @@
             <span onclick="incrementQuantity(<?php echo $product->quantity_choosing_step; ?>)">+</span>
           </div>
         </div>
-        <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
-        <?php PackageCheckbox(false); ?> 
         <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', true); ?>
         <?php DeliveryCheckbox('orange', '7days', false, false); ?>
         <?php DeliveryCheckbox('red', 'express', false, false); ?>
@@ -156,7 +154,7 @@
             MaterialCheckbox($opt->checkbox, $opt->icon, $opt->name, $opt->info);
           }
         ?>
-        <a class="contact-send product-buy" onclick="redirectToOrder()">
+        <a class="contact-send product-buy" onclick="redirectToOrder('<?php echo $language; ?>')">
           <?php echo ($language == 'HR') ? 'Upit' : 'Quote'; ?>
         </a>
     </aside>

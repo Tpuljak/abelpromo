@@ -357,215 +357,6 @@
             "step": ""
         },
         {
-            "key": "field_5d235928e2f6a",
-            "label": "Additional & shipping options",
-            "name": "additional_options",
-            "type": "group",
-            "instructions": "Should the additional options be enabled or not.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_5d235928e449c",
-                    "label": "White underprint",
-                    "name": "white_underprint",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Enabled",
-                    "ui_off_text": "Disabled"
-                },
-                {
-                    "key": "field_5d245d89f092d",
-                    "label": "White underprint price",
-                    "name": "white_underprint_price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5d235928e449c",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5d235928e44bb",
-                    "label": "Primer",
-                    "name": "primer",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Enabled",
-                    "ui_off_text": "Disabled"
-                },
-                {
-                    "key": "field_5d245db2f092e",
-                    "label": "Primer price",
-                    "name": "primer_price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5d235928e44bb",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5d235928e44c7",
-                    "label": "UV varnish",
-                    "name": "uv_varnish",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Enabled",
-                    "ui_off_text": "Disabled"
-                },
-                {
-                    "key": "field_5d245dc4f092f",
-                    "label": "UV varnish price",
-                    "name": "uv_varnish_price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5d235928e44c7",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5d235928e44d3",
-                    "label": "Engrave",
-                    "name": "engrave",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Enabled",
-                    "ui_off_text": "Disabled"
-                },
-                {
-                    "key": "field_5d245dddf0930",
-                    "label": "Engrave price",
-                    "name": "engrave_price",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5d235928e44d3",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                }
-            ]
-        },
-        {
             "key": "field_5d235928e9233",
             "label": "Image type",
             "name": "image_type",
@@ -641,6 +432,44 @@
                         "id": ""
                     },
                     "default_value": ""
+                },
+                {
+                    "key": "field_5d8b71cee96b9",
+                    "label": "Colour name",
+                    "name": "colour_name",
+                    "type": "text",
+                    "instructions": "Name the colour (e.g. #FFFFFF would be White)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8b7202e96ba",
+                    "label": "Hrvatsko ime za boju",
+                    "name": "colour_name_hr",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -809,5 +638,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1564150003
+    "modified": 1569419823
 }

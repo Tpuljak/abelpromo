@@ -11,11 +11,11 @@ window.onload = () => {
   var colourDropdown = document.querySelector('.colour-dropdown');
   if (colourDropdown) {
     var cb = document.querySelector('.colour-box');
-    cb.style.backgroundColor = colourDropdown.value;
+    cb.style.backgroundColor = colourDropdown.firstElementChild.getAttribute('colour-hex');
     cb.style.opacity = 1;
 
     colourDropdown.addEventListener('change', (e) => {
-      document.querySelector('.colour-box').style.backgroundColor = e.target.value;
+      document.querySelector('.colour-box').style.backgroundColor = colourDropdown.options[colourDropdown.selectedIndex].getAttribute('colour-hex');
     })
   }
 
@@ -102,7 +102,7 @@ function decrementQuantity(step, moq) {
   }
 }
 
-function redirectToOrder() {
+function redirectToOrder(language) {
   var productId = document.querySelector('[product-id]');
   if (productId) {
     productId = parseInt(productId.getAttribute('product-id'));
@@ -156,8 +156,8 @@ function redirectToOrder() {
   queryString += '&quantity=' + quantity;
   queryString += '&active_colour=' + activeColour;
 
-  window.location.href = origin + '/order' + queryString;
-}
+  window.location.href = origin  + ((language === 'HR') ? '/' + language.toLowerCase() : '') +  '/order' + queryString;
+} 
 
 function checkedChanged(e) {
   if (e.classList.contains('delivery-checkbox')) {

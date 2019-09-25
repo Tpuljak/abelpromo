@@ -264,7 +264,6 @@ function get_mail_message_format($customer_info) {
     $message .= "<b>Product colour:</b> " . $customer_info->productColour . "<br>";
     $message .= "<b>Quantity:</b> " . $customer_info->quantity . "<br>";
     $message .= "<b>Delivery:</b> " . $customer_info->delivery . "<br>";
-    $message .= "<b>Custom packaging:</b> " . (($customer_info->customPackage == 0) ? 'Not required' : 'Required') . "<br>";
     
     $options = $customer_info->options;
     $customer = $customer_info->customerInfo;

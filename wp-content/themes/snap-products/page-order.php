@@ -31,10 +31,12 @@
 
   if (isset($request_params['active_colour'])) {
       $image_to_del = null;
+      $colour_name = '';
 
       foreach ($product->images as $img) {
           if ($img->colour == "#".(string)$request_params['active_colour']) {
               $image_to_del = $img;
+              $colour_name = $img->colour_name;
           }
       }
 
@@ -58,16 +60,15 @@
                 <?php 
                     if (isset($request_params['active_colour'])) {
                         ?>
-                            <option value="#<?php echo $request_params['active_colour']; ?>">#<?php echo $request_params['active_colour']; ?></option>
-
+                            <option value="<?php echo $colour_name ?>" colour-hex="#<?php echo $request_params['active_colour']; ?>"><?php echo $colour_name; ?></option>
                         <?php
                     }
                 ?>
                 <?php
                     foreach ($product->images as $img) {
-                        $colour = $img->colour
+                        $colour = $img->colour_name;
                         ?>
-                            <option value="<?php echo $colour; ?>"><?php echo $colour; ?></option>
+                            <option value="<?php echo $colour; ?>" colour-hex="<?php echo $img->colour; ?>"><?php echo $colour; ?></option>
                         <?php
                     }
                 ?>
@@ -148,8 +149,6 @@
 
 
     <aside class="order-details">
-        <h1><?php echo ($language == 'HR') ? 'Dodatne &' : 'Additional &'; ?><br/><?php echo ($language == 'HR') ? 'dostavljačke opcije' : 'shipping options'; ?></h1>
-        <?php PackageCheckbox((isset($request_params['custom_package']) && $request_params['custom_package'] == 1) ? true : false); ?> 
         <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
         <?php DeliveryCheckbox('orange', '7days', false, ($delivery_type != null && $delivery_type == '7days') ? true : false); ?>
         <?php DeliveryCheckbox('red', 'express', false, ($delivery_type != null && $delivery_type == 'express') ? true : false); ?>
