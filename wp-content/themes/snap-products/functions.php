@@ -15,7 +15,7 @@ if (function_exists('add_theme_support')) {
     load_theme_textdomain('snap-products');
 }
 function snap_products_style() {
-    wp_enqueue_style( 'snap-products', get_stylesheet_uri() );
+    wp_enqueue_style( 'snap-products-v2', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'snap_products_style' );
 function snap_products_script() {
