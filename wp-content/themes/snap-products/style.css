@@ -379,6 +379,10 @@ footer li:first-of-type {
   min-width: 160px;
 }
 
+.input-field label {
+  min-width: 160px !important;
+}
+
 .input-group > * {
   flex: 1;
   max-width: calc(50% - 2.5px);
@@ -1727,4 +1731,33 @@ opacity: 0;
   font-family: 'Signatra' !important;
   font-weight: 400;
   font-size: 35px;
+}
+
+
+.sidebar li::before,
+.sidebar li::after {
+  content: none !important;
+}
+
+.sidebar.horizontal {
+  transform: scale(0.85) !important;
+}
+
+.sidebar.horizontal ul {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.material-checkbox.unchecked  .type{
+  opacity: 0.6 !important;
+}
+
+@media screen and (max-width: 1441px) {
+  .contact-upload {
+    height: auto;
+  }
+
+  .contact-send {
+    font-size: 28px;
+  }
 }
