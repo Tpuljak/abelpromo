@@ -166,7 +166,7 @@
         ?>
         <a class="contact-upload" onclick="uploadFile()">
             <img src="<?php echo images; ?>/icons/upload.svg" alt="">
-            <span><?php echo ($language == 'HR') ? 'Učitaj sliku' : 'Upload artwork'; ?> <br/> <?php echo ($language == 'HR') ? '(opcijonalno)' : '(optional)'; ?></span>
+            <span><?php echo ($language == 'HR') ? 'Učitaj sliku' : 'Upload artwork'; ?> <br/> <?php echo ($language == 'HR') ? '(opcionalno)' : '(optional)'; ?></span>
         </a>
         <div class="file-input-wrapper">
         <input type="file" class="file-input empty" multiple onchange="uploadFileOnChange(this)">

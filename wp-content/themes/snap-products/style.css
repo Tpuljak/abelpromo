@@ -159,7 +159,8 @@ footer li:first-of-type {
   justify-content: space-between;
   position: relative;
   align-items: center;
-  background-image: url('/wp-content/themes/snap-products/images/promote.png');
+  background-image: url('/wp-content/themes/snap-products/images/promote.jpg');
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
@@ -737,7 +738,7 @@ footer li:first-of-type {
   min-height: 92px;
   font-size: 18px;
   line-height: 20px;
-  padding: 0px 12px;
+  padding: 0px 0px;
   margin-bottom: 18px;
   height: 92px;
   margin-top: 45px;
@@ -831,10 +832,6 @@ footer li:first-of-type {
 
 .material-checkbox.unchecked {
   pointer-events: none;
-}
-
-.material-checkbox.unchecked .checkbox {
-  background-image: url('./images/icons/checkbox-unchecked.svg') !important;
 }
 
 .material-checkbox > input,
@@ -1754,7 +1751,7 @@ opacity: 0;
 
 @media screen and (max-width: 1441px) {
   .contact-upload {
-    height: auto;
+    font-size: 17px;
   }
 
   .contact-send {
