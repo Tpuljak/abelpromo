@@ -1761,3 +1761,33 @@ opacity: 0;
     font-size: 28px;
   }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.colour-dropdown {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+
+.input-field input {
+  max-width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+@media screen and (max-wdith: 1440px) {
+  .input-field input, .input-field textarea, .input-field select {
+      padding-left: 10px;
+    padding-right: 10px;
+    }
+}
