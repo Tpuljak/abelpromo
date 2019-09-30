@@ -98,7 +98,7 @@
       <span><?php echo ($language == 'HR') ? 'CIJENE' : 'PRICING'; ?></span>
     </div>
 
-      <div class="product-table HR">
+      <div class="product-table <?php echo $language; ?>">
           <div>
             <div>50</div>
             <div>100</div>

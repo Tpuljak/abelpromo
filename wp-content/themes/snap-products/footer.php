@@ -5,12 +5,12 @@
 ?>
       <footer>
         <div>
-          <ul>
+          <ul class="no-list-style">          
             <li><a href="#" style="font-weight: 900;font-size: 20px;">Information</a></li>
             <li><a href="#">Personal information</a></li>
             <li><a href="#">About Us</a></li>
           </ul>
-          <ul>
+          <ul class="no-list-style">          
             <li><a href="#" style="font-weight: 900;font-size: 20px;">Company</a></li>
             <li><a href="#">Delivery explained</a></li>
             <li><a href="#">Full Colour Printing</a></li>
@@ -22,7 +22,7 @@
             <li><a href="#">+385 95 3877 080</a></li>
             <li><a href="#">Smiljanićeva 12b</a></li>
             <li><a href="#">21000 Split, Croatia</a></li>
-            <li><a href="mailto:abelint@gmail.com">abelint@gmail.com</a></li>
+            <li><a href="mailto:sales@abelpromo.com">sales@abelpromo.com</a></li>
           </ul>
           <div style="display: flex; justify-content: flex-start; flex-direction: column;">
             <div>

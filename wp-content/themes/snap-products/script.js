@@ -41,6 +41,19 @@ window.onload = () => {
       }
     });
   } 
+
+  changeAfterContent();
+}
+
+function changeAfterContent() {
+  if (window.location.pathname.includes('hr')) {
+    console.log(document.styleSheets);
+    document.styleSheets[2].addRule('.product-table > div:first-child > div','content: "kom" important!;');
+
+    // var after = document.querySelector('');
+    // console.log(after);
+    // if (after) after.style.content = 'kom';
+  }
 }
 
 function changeImageColour(e) {
@@ -461,15 +474,22 @@ function clearFiles() {
   document.querySelector('.file-input').classList.add('empty')
 }
 
-function redirectTo(e, to) {
+function redirectTo(e, to, language) {
   if (e.classList.contains('checked')) {
     e.classList.remove('checked');
     var queryString = new URLSearchParams(window.location.search);
     queryString.delete('filters');
 
-    window.location.href = window.location.origin + window.location.pathname + queryString.toString();
+    window.location.href = window.location.origin + ((language && language === 'HR') ? '/hr' : '') + window.location.pathname + queryString.toString();
   } else {
-    window.location.href = to;
+    var redirect = to.split('/');
+
+    if (redirect.includes('snap-products')) {
+      redirect.splice(4, 0, 'hr');
+    } else {
+      redirect.splice(3, 0, 'hr');
+    }
+    window.location.href = redirect.join('/');
   }
 }
 

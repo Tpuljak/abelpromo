@@ -2,10 +2,6 @@
   global $language;
 
   update_language();
-
-  $products = get_products(0, 10, ['discounted']);
-
-  // var_dump($products);
 ?>
 
 <?php get_header(); ?>
@@ -63,8 +59,8 @@
   <section class="bottom-hero">
     <h1>Take another step!<span>Promote your self</span></h1>
     <div>
-    <a href=" mailto:info@abelpromo.com">Email us</a>
-    <a href="#">Find us</a>
+    <a href=" mailto:sales@abelpromo.com">Email us</a>
+    <a href="https://goo.gl/maps/GaytwpbnyV1aok9Q8">Find us</a>
     </div>
   </section>
 
