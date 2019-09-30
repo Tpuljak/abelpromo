@@ -1796,3 +1796,43 @@ text-overflow: ellipsis;
     padding-right: 10px;
     }
 }
+
+.input-field label {
+  min-width: 170px !important;
+  max-width: 170px;
+}
+
+.input-field-extended label {
+  font-size: 12px;
+}
+
+.product-about.vertical .product-about-icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.product-about.vertical .product-about-icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.product-about.vertical .product-scheme {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-bottom: 0;
+}
+
+.product-about.vertical .product-image {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+}
+
+.product-about.vertical .product-image > img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

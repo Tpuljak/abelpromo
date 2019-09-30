@@ -72,12 +72,12 @@ function changeImageColour(e) {
     var colour = rgbToHex(cs.style.backgroundColor);
 
     var colours = document.querySelectorAll('[colour]');
-    colours.forEach(obj => obj.style.opacity = 0);
+    colours.forEach(obj => obj.style.display = "none");
 
     var target = document.querySelector('[colour=' + CSS.escape(colour) + ']');
 
     if (target) {
-      target.style.opacity = 1;
+      target.style.display = "block";
     }
   }
 }

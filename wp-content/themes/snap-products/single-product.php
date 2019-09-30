@@ -50,7 +50,7 @@
             for ($i = 1; $i < count($product->images); $i++) {
               ?>
               <div class="product-image">
-                <img src="<?php echo $product->images[$i]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[$i]->colour, '#')); ?>" style="opacity: 0" alt="">
+                <img src="<?php echo $product->images[$i]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[$i]->colour, '#')); ?>" style="display: none" alt="">
               </div>
               <?php
           }
