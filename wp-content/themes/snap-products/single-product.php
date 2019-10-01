@@ -40,9 +40,6 @@
       <?php } ?>
 
       </div>
-      <div class="product-scheme">
-        <img src="<?php echo $product->line_drawing; ?>" alt="">
-      </div>
       <div class="product-image">
         <img src="<?php echo $product->images[0]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[0]->colour, '#')); ?>" alt="">
       </div>      
@@ -55,9 +52,14 @@
               <?php
           }
         ?>
+      <div class="product-scheme--wrapper">
+        <div class="product-scheme">
+          <img src="<?php echo $product->line_drawing; ?>" alt="">
+        </div>
+      </div>
     </div>
 
-    <div class="break">
+    <div class="break single-product-break">
       <span><?php echo ($language == 'HR') ? 'DETALJI O PROIZVODU' : 'PRODUCT DETAILS'; ?></span>
     </div>
 

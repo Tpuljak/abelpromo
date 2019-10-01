@@ -1819,11 +1819,10 @@ text-overflow: ellipsis;
 }
 
 .product-about.vertical .product-scheme {
-  position: absolute;
-  right: 0;
-  top: 50%;
   transform: translateY(-50%);
   margin-bottom: 0;
+  margin-left: 50%;
+  margin-top: 50px;
 }
 
 .product-about.vertical .product-image {
@@ -1835,4 +1834,9 @@ text-overflow: ellipsis;
 .product-about.vertical .product-image > img {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.product-scheme--wrapper {
+  height: 100px;
+  width: 100%;
 }

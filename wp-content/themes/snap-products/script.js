@@ -484,11 +484,14 @@ function redirectTo(e, to, language) {
   } else {
     var redirect = to.split('/');
 
-    if (redirect.includes('snap-products')) {
-      redirect.splice(4, 0, 'hr');
-    } else {
-      redirect.splice(3, 0, 'hr');
+    if (language === 'HR') {
+      if (redirect.includes('snap-products')) {
+        redirect.splice(4, 0, 'hr');
+      } else {
+        redirect.splice(3, 0, 'hr');
+      }
     }
+
     window.location.href = redirect.join('/');
   }
 }
