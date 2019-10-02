@@ -149,7 +149,7 @@
 
 
     <aside class="order-details">
-        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
+        <?php DeliveryCheckbox('green', 'regular', false, ($delivery_type != null && $delivery_type == 'regular') ? true : false); ?>
         <?php DeliveryCheckbox('orange', '7days', false, ($delivery_type != null && $delivery_type == '7days') ? true : false); ?>
         <?php DeliveryCheckbox('red', 'express', false, ($delivery_type != null && $delivery_type == 'express') ? true : false); ?>
         <?php DeliveryCheckbox('darkred', '2days', false, ($delivery_type != null && $delivery_type == '2days') ? true : false); ?>

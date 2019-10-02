@@ -38,7 +38,11 @@
           }
       ?>              
       <?php } ?>
-
+      </div>
+      <div class="product-scheme--wrapper">
+        <div class="product-scheme">
+          <img src="<?php echo $product->line_drawing; ?>" alt="">
+        </div>
       </div>
       <div class="product-image">
         <img src="<?php echo $product->images[0]->image; ?>" colour="<?php echo strtolower(ltrim($product->images[0]->colour, '#')); ?>" alt="">
@@ -52,11 +56,6 @@
               <?php
           }
         ?>
-      <div class="product-scheme--wrapper">
-        <div class="product-scheme">
-          <img src="<?php echo $product->line_drawing; ?>" alt="">
-        </div>
-      </div>
     </div>
 
     <div class="break single-product-break">
@@ -143,7 +142,7 @@
             <span onclick="incrementQuantity(<?php echo $product->quantity_choosing_step; ?>)">+</span>
           </div>
         </div>
-        <?php DeliveryCheckbox('green', 'regular', 'INFO BOX', true); ?>
+        <?php DeliveryCheckbox('green', 'regular', false, true); ?>
         <?php DeliveryCheckbox('orange', '7days', false, false); ?>
         <?php DeliveryCheckbox('red', 'express', false, false); ?>
         <?php DeliveryCheckbox('darkred', '2days', false, false); ?>
