@@ -111,6 +111,7 @@
           <div>
             <?php 
               foreach ($prices as $price) {
+                if ($language == 'EN') $price = round(0.13 * $price, 2);
                 ?>
                 <div class="price--number" original-price="<?php echo $price; ?>"><?php echo $price; ?></div>
                 <?php
