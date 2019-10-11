@@ -10,7 +10,6 @@
   <div class="slider">
     <div class="inner">
       <img src="<?php echo images . '/slider/FRESIA.jpg'; ?>" alt="" />
-      <img src="<?php echo images . '/slider/MAJICE.jpg'; ?>" alt="" />
       <img src="<?php echo images . '/slider/TEHNIKA.jpg'; ?>" alt="" />
     </div>
   </div>
