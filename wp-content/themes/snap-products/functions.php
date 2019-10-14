@@ -161,7 +161,8 @@ function calculate_prices($product, $delivery) {
     $price = 0.0;
 
     $a = $product->product_price;
-    $b0 = $product->base_print_price;
+    $b0 = floatval($product->base_print_price);
+    
     $b1 = 0.0;
     $b2 = 0.0;
     $b3 = 0.0;
