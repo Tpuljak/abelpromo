@@ -183,12 +183,95 @@ function checkedChanged(e) {
 
     updatePrices(e);
   }
+
   if (e.classList.contains('empty')) {
     e.classList.remove('empty');
     e.classList.add('checked');
   } else {
     e.classList.remove('checked');
     e.classList.add('empty');
+  }
+
+  if (e.classList.contains('material-checkbox')) {
+    getNewPrices();
+  }
+}
+
+function getNewPrices() {
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      getPricesCallback(request.response);
+    }
+  }
+
+  var queryString = '?';
+  queryString += 'product_id=' + parseInt(document.querySelector('main').getAttribute('product-id'));
+  queryString += '&delivery=' + document.querySelector('.delivery-checkbox.checked').getAttribute('type');
+  queryString += '&wu=';
+  if (document.querySelector('[type="underprint"].checked')) queryString += 'true';
+  else queryString += 'false';
+
+  queryString += '&uv=';
+  if (document.querySelector('[type="uv"].checked')) queryString += 'true';
+  else queryString += 'false';
+
+  queryString += '&p=';
+  if (document.querySelector('[type="primer"].checked')) queryString += 'true';
+  else queryString += 'false';
+
+  queryString += '&engrave=';
+  if (document.querySelector('[type="engrave"].checked')) queryString += 'true';
+  else queryString += 'false';
+
+  var append = '';
+
+  if (location.pathname.includes('snap-products')) {
+    append += '/snap-products';
+  }
+
+  request.open('POST', location.origin + append + '/wp-json/api/products/get-prices' + queryString, true);
+  request.send(null);
+}
+
+function getPricesCallback(response) {
+  var pricesResponse = JSON.parse(response);
+
+  var coef = 1;
+  var productTable = document.querySelector('.product-table');
+
+  if (productTable.classList.contains('EN')) coef = 0.13;
+
+  var priceNumbers = document.querySelectorAll('.price--number');
+
+  var deliveryType = document.querySelector('.delivery-checkbox.checked').getAttribute('type');
+  var coefficient = 1;
+  switch(deliveryType) {
+    case '7days':
+      coefficient = 1.3;
+      break;
+    case 'express':
+      coefficient = 2.0;
+      break;
+    case '2days':
+      coefficient = 2.5;
+      break;
+    case '1day':
+      coefficient = 3.0;
+      break;
+    default:
+      coefficient = 1.0;
+      break;
+  }
+
+  if (priceNumbers) {
+    priceNumbers.forEach((num, index) => {
+      var originalPrice = parseFloat(pricesResponse[index] / coefficient);
+
+      num.innerHTML = (pricesResponse[index] * coef).toFixed(2);
+      num.setAttribute('original-price', originalPrice.toString());
+    });
   }
 }
 

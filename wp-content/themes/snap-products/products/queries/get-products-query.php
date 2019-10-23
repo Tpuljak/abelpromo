@@ -63,6 +63,8 @@
         $products_query .= " AND t.name = 'Print &amp; Cut stickers'";
       }  elseif (in_array('diaries', $filters)) {
         $products_query .= " AND t.name = 'Diaries'";
+      } elseif (in_array('pierre-cardin', $filters)) {
+        $products_query .= " AND t.name = 'Pierre Cardin'";
       }
 
       if (in_array('discounted', $filters)) {

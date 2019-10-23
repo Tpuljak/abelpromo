@@ -42,7 +42,7 @@
                   <span><?php echo  ($language == 'HR') ? 'Rokovnici' : 'Diaries'; ?></span></a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo home_url((($language == 'HR') ? '/hr' : '') .'/menu?filters=pierre-cardin'); ?>">
           <img src="<?php echo images; ?>/icons/pierre.svg" alt="">
                   <span>Pierre Cardin</span></a>
       </li>

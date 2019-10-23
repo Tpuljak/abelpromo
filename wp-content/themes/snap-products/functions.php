@@ -151,7 +151,39 @@ function get_request_params() {
     return $request_params;
 }
 
-function calculate_prices($product, $delivery) {
+add_action('rest_api_init', function() {
+    register_rest_route('api', 'products/get-prices', array(
+        'methods' => 'POST',
+        'callback' => 'get_prices'
+    ));
+});
+
+function get_prices($params) {
+    $request_params = array();
+    parse_str($_SERVER['QUERY_STRING'], $request_params);
+    
+    global $language;
+    $language = 'EN';
+
+    if (isset($request_params['lang'])) {
+        $language = $request_params['lang'];
+    }
+    
+    $product = get_product(intval($request_params['product_id']));
+    
+    if ($product) {
+        $product = array_values($product)[0];
+    }
+
+    $delivery = $request_params['delivery'];
+
+
+    $prices = calculate_prices($product, $delivery, $request_params['wu'], $request_params['p'], $request_params['uv'], $request_params['engrave']);
+
+    return $prices;
+}
+
+function calculate_prices($product, $delivery, $wu = false, $p = false, $uv = false, $engrave = false) {
     $prices = array();
 
     if (!isset($product->base_print_price) || !isset($product->product_price)) {
@@ -162,25 +194,29 @@ function calculate_prices($product, $delivery) {
 
     $a = $product->product_price;
     $b0 = floatval($product->base_print_price);
-    
+
     $b1 = 0.0;
     $b2 = 0.0;
     $b3 = 0.0;
     $b4 = 0.0;
 
-    if (isset($product->white_underprint) && $product->white_underprint) {
+    if (isset($product->white_underprint) && $wu == 'true') {
         $b1 = $b0 * 0.25;
     }
 
-    if (isset($product->primer) && $product->primer) {
+    if (isset($product->primer) && $p == 'true') {
         $b2 = $b0 * 0.5;
     }
 
-    if (isset($product->uv_varnish) && $product->uv_varnish) {
+    if (isset($product->uv_varnish) && $uv == 'true') {
         $b3 = $b0 * 0.25;
     }
 
     $b = $b0 + $b1 + $b2 + $b3;
+
+    if (isset($product->engrave) && $engrave == 'true') {
+        $b = $product->engrave_price;
+    }
 
     $x_factors = [1.15, 1.00, 0.93, 0.85, 0.77, 0.70];
 

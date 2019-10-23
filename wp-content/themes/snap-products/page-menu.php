@@ -16,7 +16,7 @@
   }
 
   $products = get_products($offset = 0, $how_many = 20, $filters);
-
+  
   if ($products != NULL) {
     $products = array_values($products);
 
