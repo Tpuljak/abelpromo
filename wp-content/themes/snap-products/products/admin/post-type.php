@@ -11,7 +11,7 @@
           'query_var' => true,
           'rewrite' => array('slug' => 'products'),
           'menu_icon' => 'dashicons-cart',
-          'supports' => 'title'
+          'supports' => array('title')
           );
       register_post_type('product', $productPostTypeOptions);
   }
